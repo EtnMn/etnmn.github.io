@@ -32,6 +32,9 @@ footer_links:
   - title: Twitter
     url: https://twitter.com/mmistakes
     icon: fab fa-twitter-square
+  - title: Feed
+    url: atom.xml
+    icon: fas fa-rss-square
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
