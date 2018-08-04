@@ -30,6 +30,10 @@ remote_theme: "mmistakes/so-simple-theme"
 plugins:
   - jekyll-feed
 
+# Taxonomy pages
+category_archive_path: "/categories/#"
+tag_archive_path: "/tags/#"
+
 footer_links:
   - title: Twitter
     url: https://twitter.com/mmistakes
