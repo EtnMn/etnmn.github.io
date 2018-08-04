@@ -24,6 +24,8 @@ logo: "/assets/images/avatar.png"
 
 # Build settings
 markdown: kramdown
+feed:
+  path: atom.xml
 remote_theme: "mmistakes/so-simple-theme"
 plugins:
   - jekyll-feed
