@@ -38,8 +38,7 @@ tag_archive_path: "/tags/#"
 
 # Author
 author:
-  twitter: etnmn
-  picture: /assets/images/avatar.png
+  name: Etienne
   links:
     - title: Twitter
       url: https://twitter.com/etnmn
