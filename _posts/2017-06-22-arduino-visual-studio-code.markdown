@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Developper pour arduino avec Visual Studio Code"
+title:  "Arduino et Visual Studio Code"
 date:   2017-06-22 22:28:00 +0000
 tags: arduino iot
 image:
