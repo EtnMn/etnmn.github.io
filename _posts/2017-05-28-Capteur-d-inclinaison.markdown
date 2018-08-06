@@ -2,7 +2,10 @@
 layout: post
 title:  "Capteur d'inclinaison"
 date:   2017-07-28 22:45:00 +0000
-categories: arduino iot
+tags: arduino iot
+image:
+  path: /images/tiltSensor.jpg
+  thumbnail: /images/tiltSensor_thjpg
 ---
 Les capteurs d'inclinaison (ou Tilt sensor en anglais) sont des composants électroniques de petite taille et peu coûteux capables de changer d'état au delà d'un certain angle d'inclinaison. Le principe est simple, en position verticale le capteur se comporte comme un interrupteur normalement fermé, mais lorsque son inclinaison évolue au delà d'une certaine valeur, le contact mécanique (1 ou 2 billes ou du mercure) se déplace et ouvre le circuit. Dans le commerce on trouve ce genre de capteur sous deux formes:
 * le capteur nu, par exemple la référence SW-520D,
@@ -17,7 +20,7 @@ Les caractéristiques du SW-520D sont en adéquation avec celles de l'Arduino (T
 
 Lorsque le capteur passe en position ouvert, un son sera émis par le buzzer actif connecté à la broche n°8 de l'Arduino Uno.
 
-![Branchement du composant SW-520D]({{ "/assets/images/tiltBuzzer.jpg" | absolute_url}})
+![Branchement du composant SW-520D]({{ "/images/tiltBuzzer.jpg" | absolute_url}})
 
 ## Code
 L'expérimentation a montré que l'anti-rebond matériel géré par le filtre RC ne permet pas d'éviter des déclenchements intempestifs dus aux vibrations importantes. Il est donc nécessaire d'ajouter un anti-rebond logiciel qui ne déclenchera l'action que si l'état est tenu pendant une période de temps. Cette période a été définie à 100ms.
