@@ -17,7 +17,7 @@ Les caractéristiques du SW-520D sont en adéquation avec celles de l'Arduino (T
 
 Lorsque le capteur passe en position ouvert, un son sera émis par le buzzer actif connecté à la broche n°8 de l'Arduino Uno.
 
-![Branchement du composant SW-520D]({{ "/assets/images/tiltBuzzer.jpg" }})
+![Branchement du composant SW-520D]({{ "/assets/images/tiltBuzzer.jpg" | absolute_url}})
 
 ## Code
 L'expérimentation a montré que l'anti-rebond matériel géré par le filtre RC ne permet pas d'éviter des déclenchements intempestifs dus aux vibrations importantes. Il est donc nécessaire d'ajouter un anti-rebond logiciel qui ne déclenchera l'action que si l'état est tenu pendant une période de temps. Cette période a été définie à 100ms.
