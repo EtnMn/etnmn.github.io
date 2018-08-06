@@ -5,7 +5,7 @@ date:   2017-07-28 22:45:00 +0000
 tags: arduino iot
 image:
   path: /images/tiltSensor.jpg
-  thumbnail: /images/tiltSensor_thjpg
+  thumbnail: /images/tiltSensor_th.jpg
 ---
 Les capteurs d'inclinaison (ou Tilt sensor en anglais) sont des composants électroniques de petite taille et peu coûteux capables de changer d'état au delà d'un certain angle d'inclinaison. Le principe est simple, en position verticale le capteur se comporte comme un interrupteur normalement fermé, mais lorsque son inclinaison évolue au delà d'une certaine valeur, le contact mécanique (1 ou 2 billes ou du mercure) se déplace et ouvre le circuit. Dans le commerce on trouve ce genre de capteur sous deux formes:
 * le capteur nu, par exemple la référence SW-520D,
