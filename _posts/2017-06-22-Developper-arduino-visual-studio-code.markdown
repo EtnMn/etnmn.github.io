@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Developper pour arduino dans Visual Studio- Code"
+title:  "Developper pour arduino avec Visual Studio Code"
 date:   2017-06-22 22:28:00 +0000
 tags: arduino iot
 image:
@@ -18,9 +18,8 @@ Deuxième étape, [installer](https://code.visualstudio.com/) l'extension. Ouvri
 ## Configuration
 
 La configuration de l'extension peut se faire à deux niveaux:
-
- 	* User: les options seront globales à tous les projets VSCode
- 	* Workspace: les options ne seront valables que pour l'espace de travail courant (Informations sauvegardées dans le répertoire *.vscode*, à la racine du projet courant)
+* User: les options seront globales à tous les projets VSCode
+* Workspace: les options ne seront valables que pour l'espace de travail courant (Informations sauvegardées dans le répertoire *.vscode*, à la racine du projet courant)
 
 
 La liste des options est visible dans les *User settings (Ctrl+Shift+P)*. A noter que pour une configuration standard, cette étape n'est pas nécessaire, les valeurs par défaut répondant au besoin. Il est également possible de vérifier les chemins dans le fichier *c_cpp_properties.json* du *workspace*. En cas de modification, penser à redémarrer VSCode.
