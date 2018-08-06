@@ -22,7 +22,6 @@ twitter_username: etnmn
 github_username:  etnmn
 logo: "/assets/images/avatar.png"
 date_format: "%Y-%m-%d"
-read_time: true
 locale: fr-FR
 
 # Build settings
@@ -61,7 +60,7 @@ footer_links:
     icon: fab fa-github-square
   - title: LinkedIn
     url: https://www.linkedin.com/in/etienne-menou
-    icon: fab fa-linkedin-in
+    icon: fab fa-linkedin
   - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
