@@ -75,7 +75,7 @@ fr: &DEFAULT_FR
   skip_footer: "Skip to footer"
   menu_label: "Menu"
   by: "par"
-  min_read: "Minutes de lecture"
+  min_read: "min de lecture"
   read_more: "Lire la suite"
   categories: "Categories"
   tags: "Etiquettes"
