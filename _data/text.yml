@@ -91,6 +91,6 @@ fr: &DEFAULT_FR
   older: "Older"
   back_to_top: "Remonter en haut de la page"
   search_placeholder_text: "Enter your search term..."
-  powered_by: "Supporté par"
+  powered_by: "Propulsé par"
 fr-FR:
   <<: *DEFAULT_FR
