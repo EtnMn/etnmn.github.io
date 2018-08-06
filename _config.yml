@@ -23,6 +23,7 @@ github_username:  etnmn
 logo: "/assets/images/avatar.png"
 date_format: "%Y-%m-%d"
 read_time: true
+locale: fr-FR
 
 # Build settings
 markdown: kramdown
@@ -38,9 +39,17 @@ tag_archive_path: "/tags/#"
 
 # Author
 author:
-  name: Etienne
   twitter: etnmn
   picture: /assets/images/avatar.png
+  links:
+    - title: Twitter
+      url: https://twitter.com/etnmn
+      icon: fab fa-twitter-square
+    - title: GitHub
+      url: https://github.com/etnmn
+    - title: LinkedIn
+      url: https://www.linkedin.com/in/etienne-menou
+      icon: fab fa-linkedin
 
 footer_links:
   - title: Twitter
