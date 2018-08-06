@@ -61,7 +61,7 @@ footer_links:
     icon: fab fa-github-square
   - title: LinkedIn
     url: https://www.linkedin.com/in/etienne-menou
-    icon: fab fa-linked-in
+    icon: fab fa-linkedin-in
   - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
