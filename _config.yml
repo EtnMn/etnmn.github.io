@@ -47,14 +47,23 @@ author:
       icon: fab fa-twitter-square
     - title: GitHub
       url: https://github.com/etnmn
+      icon: fab fa-github
     - title: LinkedIn
       url: https://www.linkedin.com/in/etienne-menou
       icon: fab fa-linkedin
+
+copyright: "© 2018 . EtnMn . <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/mmistakes/so-simple-theme" rel="nofollow">So Simple</a>."
 
 footer_links:
   - title: Twitter
     url: https://twitter.com/etnmn
     icon: fab fa-twitter-square
+  - title: GitHub
+    url: https://github.com/etnmn
+    icon: fab fa-github-square
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/etienne-menou
+    icon: fab fa-linkedin-square
   - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
