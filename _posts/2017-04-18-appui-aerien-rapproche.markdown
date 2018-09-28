@@ -48,6 +48,8 @@ La bombe *Mk82* s'accroche aux véhicules (ni personnage, ni bâtiment). Une foi
 
 Afin de faciliter la phase d'approche, il est impératif de s'aligner à l'aide du radar. Il est également possible d'utiliser le GPS (*Ctrl+,*). La montre (*T*) s'avère également intéressante pour visualiser l'heure de la frappe.
 
+![MK82]({{ "/images/a10-mk82.png" | absolute_url}})
+
 ## Frappe non guidée, simulée par un tir d'artillerie
 
 * Cible: X Ural 4320 (Covered) OPFOR
@@ -70,6 +72,8 @@ Utiliser un *waypoint* de type *Seek and Destroy* sur la cible. Les commandes su
 
 Le FAC contrôlé par l'IA désigne automatiquement le véhicule ennemi. Dans l'avion, sélectionner la *GBU-12*. La cible est désignée par un carré. Pour changer de cible, utiliser la touche *tabulation*.
 
+![GBU12]({{ "/images/gbu12.jpg" | absolute_url}})
+
 ## Tageting Pod
 
 * Cible: X Ural 4320 (Covered) OPFOR
@@ -84,3 +88,5 @@ Lors du lancement de la mission, valider l'action *LITENING Targeting Pod*. Pour
 * Hélicoptère: ARH- GIAT 30mm - Hydra - AGM114
 
 Aux commandes de *l'ARH*, sélectionner le *Laser Designator* puis *clic droit* pour l'allumer. Sélectionner à présent les *Hellfires* puis faire un c*lic droit* pour aligner les cibles.
+
+![AGM114]({{ "/images/agm114.jpg" | absolute_url}})
