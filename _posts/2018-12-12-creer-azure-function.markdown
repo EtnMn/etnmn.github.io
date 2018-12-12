@@ -4,7 +4,6 @@ title: "Création d'une Azure function connectée à une Azure Table"
 date: 2018-12-12 18:00:00 +0000
 tags: Azure .NET Core
 image:
-  path: /images/azure-function.jpg
   thumbnail: /images/azure-function-th.jpg
 ---
 
