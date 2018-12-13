@@ -6,9 +6,6 @@ tags:
     - Azure
     - .NET Core
 ---
-
-# Création d'une Azure function connectée à une Azure Table
-
 Une _Azure function_ permet d'exécuter du code dans le cloud _Azure_, sans se soucier de créer une application complète ni de gérer l'infrastructure sur laquelle le code va s'exécuter. Il existe [différents modèles](https://docs.microsoft.com/fr-fr/azure/azure-functions/functions-overview#what-can-i-do-with-functions) d'_Azure function_, dont le **HTTPTrigger** qui permet de déclencher l'exécution d'un code sur une requête _HTTP_.
 
 L'objectif ici est de développer une première _Azure function_, en utilisant _Visual Studio_ et _.NET Core_. Cette fonction aura pour objectif de réceptionner des demandes sous forme de _Ticket_, de les vérifier, puis de les stocker dans une table.
