@@ -128,7 +128,7 @@ A présent que seule la méthode _POST_ est utilisée, il n'est plus possible de
 Pour publier vers _Azure_:
 
 1. Faire un clic droit sur le projet dans l’_Explorateur de solutions_, puis _Publier..._
-2. Pour le moment, aucun profil de déploiement ne devrait être disponible. Cliquer sur _Publier_
+2. Pour le moment, aucun profil de déploiement ne devrait être disponible. L'option _Exécuter à partir du ZIP_ permet à l'application de fonction de s’exécuter directement à partir du package de déploiement. Cliquer sur _Publier_.
 3. Renseigner les différentes valeurs demandées par l'**App service**, en créant un nouveau groupe de ressources et un compte de stockage.
 
 ![Créer l'app service]({{ "/images/azure-creer-app-service.jpg" | absolute_url}})
