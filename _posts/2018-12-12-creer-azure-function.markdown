@@ -147,7 +147,7 @@ Dans le portail _Azure_, chercher le groupe de ressource _Ticket_ créé précé
 
 Pour être sauvegardé dans la table, un objet _Ticket_ doit hériter de **TableEntity**. Dans le constructeur, initialiser:
 
-1. PartitionKey: forcer à une valeur afin de ne pas partitionner les données sur plusieurs serveurs
+1. PartitionKey: forcer une valeur afin de ne pas partitionner les données sur plusieurs serveurs
 2. RowKey: la clé primaire, générée automatiquement
 
 ```c#
