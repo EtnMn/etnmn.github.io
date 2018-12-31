@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Création d'une Azure function connectée à une Azure Table"
+title: "Création d'une Azure Function connectée à une Azure Table"
 date: 2018-12-12 18:00:00 +0000
 tags: 
     - Azure
     - .NET Core
 ---
-Une _Azure function_ permet d'exécuter du code dans le cloud _Azure_, sans se soucier de créer une application complète ni de gérer l'infrastructure sur laquelle le code va s'exécuter. Il existe [différents modèles](https://docs.microsoft.com/fr-fr/azure/azure-functions/functions-overview#what-can-i-do-with-functions) d'_Azure function_, dont le **HTTPTrigger** qui permet de déclencher l'exécution d'un code sur une requête _HTTP_.
+Une _Azure Function_ permet d'exécuter du code dans le cloud _Azure_, sans se soucier de créer une application complète ni de gérer l'infrastructure sur laquelle le code va s'exécuter. Il existe [différents modèles](https://docs.microsoft.com/fr-fr/azure/azure-functions/functions-overview#what-can-i-do-with-functions) d'_Azure Function_, dont le **HTTPTrigger** qui permet de déclencher l'exécution d'un code sur une requête _HTTP_.
 
-L'objectif ici est de développer une première _Azure function_, en utilisant _Visual Studio_ et _.NET Core_. Cette fonction aura pour objectif de réceptionner des demandes sous forme de _Ticket_, de les vérifier, puis de les stocker dans une table.
+L'objectif ici est de développer une première _Azure Function_, en utilisant _Visual Studio_ et _.NET Core_. Cette fonction aura pour objectif de réceptionner des demandes sous forme de _Ticket_, de les vérifier, puis de les stocker dans une table.
 
 > Le code présenté est disponible sur [Github](https://github.com/EtnMn/TicketsFunctionApp)
 
@@ -27,26 +27,26 @@ L'objectif ici est de développer une première _Azure function_, en utilisant _
 
 _Visual Studio_ contient un modèle pré-configuré pour le déploiement d'_Azure Function_. Il permet de créer une  **Function App**, qui est un regroupement d'_Azure Functions_
 
-1. Dans le menu _Fichier_ de _Visual Studio_, sélectionner _Nouveau > Projet_.
+1. Dans le menu _Fichier_ de _Visual Studio_, sélectionner _Nouveau > Projet_
 2. Dans la boîte de dialogue _Nouveau projet_, déplier la catégorie: _Installé > Visual C# > Cloud_ et sélectionner _Azure Functions_
 3. Lui donner un nom (ici _TicketsFunctionApp_) et valider
 4. Dans la boite de dialogue _Nouveau Projet_, indiquer les valeurs suivantes:
-    * Version: _Azure Functions 2.x (.NET Core)_, afin de prendre en charge le .NET Core, contrairement à la version 1.x qui prend en charge .NET Framework.
+    * Version: _Azure Functions 2.x (.NET Core)_, afin de prendre en charge le .NET Core, contrairement à la version 1.x qui prend en charge .NET Framework
     * Modèle: _Déclencheur HTTP_, afin de déclencher l'appel fonction via une requête _HTTP_
 5. Compte de stockage: _Aucun_, cette option n'est pas nécessaire dans le cadre des déclencheurs _HTTP_
 6. Droits d’accès: _Function_, pour spécifier une clé d'utilisation
-![Nouveau projet Azure function]({{ "/images/azure-function-nouveau-projet.jpg" | absolute_url}})
+![Nouveau projet Azure Function]({{ "/images/azure-function-nouveau-projet.jpg" | absolute_url}})
 
 7. Valider la boite de dialogue en appuyant sur _OK_
 
 Le projet est à présent créé. On peut voir dans ses références que le _NuGet_ _Microsoft.NET.Sdk.Functions_ a été chargé. C'est ce dernier qui va permettre à la compilation de générer le fichier de configuration: _function.json_, à partir des attributs des classes et méthodes. Deux autres fichiers ont été créés:
 
 1. _host.json_: contient les options de configuration globale, qui affectent l’ensemble des fonctions d’une _Function App_. Par défaut, seule la version du _runtime_ est indiquée: _2.0_
-2. _local.settings.json_: le fichier des paramètres locaux stocke les paramètres pour l’exécution locale. Ces paramètres ne sont pas publiés sur _Azure_. Ce fichier est par défaut exclu du contrôleur de code source.
+2. _local.settings.json_: le fichier des paramètres locaux stocke les paramètres pour l’exécution locale. Ces paramètres ne sont pas publiés sur _Azure_. Ce fichier est par défaut exclu du contrôleur de code source
 
 ### Test en local
 
-Il est possible d'exécuter le projet en local en appuyant sur _F5_. Des outils complémentaires, tels que **Azure Functions Core Tools** sont nécessaires, _Visual Studio_ devrait en proposer l'installation à ce moment là. L'installation peut être vérifiée dans une console, en faisant `npm list -g --depth=0`. Une console s'ouvre ensuite, listant les étapes de compilation et, à la fin, l'adresse locale permettant d'accéder à la fonction, à recopier dans un navigateur (par exemple: `http://localhost:7071/api/Function1`). Par défaut aucun paramètre n'étant indiqué, un message de requête incorrecte est retournée. Si par contre on ajoute `?name=toto` à la fin, on obtient un message d'acquittement.
+Il est possible d'exécuter le projet en local en appuyant sur _F5_. Des outils complémentaires, tels que **Azure Functions Core Tools** sont nécessaires, _Visual Studio_ devrait en proposer l'installation à ce moment là. L'installation peut être vérifiée dans une console, en faisant `npm list -g --depth=0`. Une console s'ouvre ensuite, listant les étapes de compilation et, à la fin, l'adresse locale permettant d'accéder à la fonction, à recopier dans un navigateur (par exemple: `http://localhost:7071/api/Function1`). Par défaut aucun paramètre n'étant indiqué, un message de requête incorrecte est retourné. Si par contre on ajoute `?name=toto` à la fin, on obtient un message d'acquittement.
 
 ## Création du model
 
@@ -106,16 +106,16 @@ public static async Task<IActionResult> Run(
 
 ## Postman
 
-A présent que seule la méthode _POST_ est utilisée, il n'est plus possible de passer par un navigateur pour tester la fonction. A la place, on passe par un outil comme par exemple ![Postman](https://www.getpostman.com/).
+A présent que seule la méthode _POST_ est utilisée, il n'est plus possible de passer par un navigateur pour tester la fonction. A la place, on passe par un outil comme ![Postman](https://www.getpostman.com/).
 
 1. Installer _Postman_ et le démarrer
 2. Copiez l'URL de la fonction dans Postman.
 3. Sélectionner la méthode _POST_
-4. Dans *Body* > *Raw*, recopier le corps _JSON_ ci dessous
+4. Dans *Body* > *Raw*, recopier le corps _JSON_ ci-dessous
 ```json
 {
-	title: "Créer une Azure function",
-	content: "Je voudrais créer une Azure function capable de gérer des tickets.",
+	title: "Créer une Azure Function",
+	content: "Je voudrais créer une Azure Function capable de gérer des tickets.",
 	Priority: 2,
 	creationDate: "2018-10-12T18:25:43.511Z"
 }
@@ -127,17 +127,15 @@ A présent que seule la méthode _POST_ est utilisée, il n'est plus possible de
 Pour publier vers _Azure_:
 
 1. Faire un clic droit sur le projet dans l’_Explorateur de solutions_, puis _Publier..._
-2. Pour le moment, aucun profil de déploiement ne devrait être disponible. L'option _Exécuter à partir du ZIP_ permet à l'application de fonction de s’exécuter directement à partir du package de déploiement. Cliquer sur _Publier_.
-3. Renseigner les différentes valeurs demandées par l'**App service**, en créant un nouveau groupe de ressources et un compte de stockage.
-
+2. Pour le moment, aucun profil de déploiement ne devrait être disponible. L'option _Exécuter à partir du ZIP_ permet à l'application de fonction de s’exécuter directement à partir du package de déploiement. Cliquer sur _Publier_
+3. Renseigner les différentes valeurs demandées par l'**App service**, en créant un nouveau groupe de ressources et un compte de stockage
 ![Créer l'app service]({{ "/images/azure-creer-app-service.jpg" | absolute_url}})
-
 4. Aller sur le portail _Azure_, dans le groupe de ressource: _Ticket_, _App service_: _TicketsFunctionApp20181212033453_
 5. Cliquer sur la fonction _CreateTicket_ puis sur le lien _</> Get function URL_ pour obtenir l'URL et le code à utiliser dans Postman
 
 ## Stocker les tickets dans une Azure Table
 
-A la réception d'un ticket valide, on veut stocker ses valeurs dans une table afin de les exploiter à posteriori. _Azure Table_ permet un stockage sous forme de _clé / valeur_, qui sans offrir la richesse d'une _API SQL_, permet de réaliser des opérations de type _CRUD_ de façon simple et performante.
+A la réception d'un ticket valide, on veut stocker ses valeurs dans une table afin de les exploiter a posteriori. _Azure Table_ permet un stockage sous forme de _clé / valeur_, qui sans offrir la richesse d'une _API SQL_, permet de réaliser des opérations de type _CRUD_ de façon simple et performante.
 
 ### Créer la table
 
@@ -149,7 +147,7 @@ Dans le portail _Azure_, chercher le groupe de ressource _Ticket_ créé précé
 
 Pour être sauvegardé dans la table, un objet _Ticket_ doit hériter de **TableEntity**. Dans le constructeur, initialiser:
 
-1. PartitionKey: forcer à une valeur afin de ne pas partitionner les données sur plusieurs serveurs.
+1. PartitionKey: forcer à une valeur afin de ne pas partitionner les données sur plusieurs serveurs
 2. RowKey: la clé primaire, générée automatiquement
 
 ```c#
@@ -209,7 +207,7 @@ IConfigurationRoot config = new ConfigurationBuilder()
 string connectionString = config["azureTableConnectionString"];
 ```
 
-Pour l'écriture en elle même, on utilise une **TableOperation** de type _Insert_.
+Pour l'écriture en elle-même, on utilise une **TableOperation** de type _Insert_.
 
 ```c#
 private static async Task CreateTicket(string connectionString, Ticket ticket, ILogger log)
