@@ -19,8 +19,8 @@ website: https://www.menou.fr
 darkmode: false
 
 # Social links
-twitter_username: etnnm
-github_username:  etnm
+twitter_username: etnmn
+github_username:  etnmn
 # stackoverflow_username: "00000001"
 # dribbble_username: jekyll
 # facebook_username: jekyll
@@ -52,66 +52,87 @@ additional_links:
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/avatar.png
 about_content: | # this will include new lines to allow paragraphs
-  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
+  Hi, My name is Etienne and I'm a .NET developer with over 10 years in the business. I specialize in C# and have professional experience working with JavaScript. Based in Nantes, my main responsibilities include building reliable and a pleasant to use web applications and maintain them.
 
-  You can even add paragraphs by using empty lines like this and add anything else [markdown](https://www.markdownguide.org/getting-started#what-is-markdown) supports such as
-    - Lists
-    - Tables
-    - <a href="google.com">Links</a>
-    - Images ![alt text](/images/landscape-trees.jpg "Trees")
+  My interests are <mark>C#</mark>, <mark>Azure</mark>, <mark>.NET Core</mark> and <mark>Vue JS</mark>.
 
 content:
-  - title: Projects # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        title: Project name
-        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        link_text: Link Text
-        additional_links:
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        quote: >
-          Short overview of the project (optional)
-        description: | # this will include new lines to allow paragraphs
-          Description about the work on/with the project
+  # - title: Projects # Title for the section
+  #   layout: list # Type of content section (list/text)
+  #   content:
+  #     - layout: left
+  #       title: Project name
+  #       link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+  #       link_text: Link Text
+  #       additional_links:
+  #         - title:  Github page for project (eg. sproogen/modern-resume-theme)
+  #           icon: fab fa-github
+  #           url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+  #         - title:  Github page for project (eg. sproogen/modern-resume-theme)
+  #           icon: fab fa-github
+  #           url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+  #       quote: >
+  #         Short overview of the project (optional)
+  #       description: | # this will include new lines to allow paragraphs
+  #         Description about the work on/with the project
   - title: Experience
     layout: list
     content:
-      - layout: right
-        title: Company name
-        sub_title: Job title
-        caption: Date Range (eg. November 2016 - present)
-        link: Link to company (optional)
+      - layout: left
+        title: Expertime
+        sub_title: Software Developer
+        caption: November 2018 - present
+        link: https://www.expertime.com/
         quote: >
-          Short description of the company (optional)
+          Expertime is a specialized consulting and integration company for collaborative solutions in the Microsoft environment.
         description: | # this will include new lines to allow paragraphs
-          Description of role
+          I work with internal teams to design, develop and maintain software. I create applications from scratch, starting from a configure Azure res and provide user support.
+          
+          Web App and API mainly use ASP .NET Core framework and are hosted on Azure to take advantage of all its capabilities, such as *security, load balancing, continuous deployment...*
+      - layout: left
+        title: Brioche Pasquier 
+        sub_title: Software Developer in consulting for Groupe Onepoint
+        caption: August 2015 - November 2018
+        link: https://www.groupeonepoint.com/
+        quote: >
+          Brioche Pasquier is a traditional French family bakery
+        description: | # this will include new lines to allow paragraphs
+          As an IT consultant, I helped development teams to create a completely new version of the systems in charge of the logistic and products.
+          
+          The main challenge was to develop a brand new Winform application considering legacy constraint such as DB2/AS400 database and applications.
+      - layout: left
+        title: Agenium 
+        sub_title: Software Developer
+        caption: October 2006 - April 2015
+        link: https://www.agenium.com/
+        quote: >
+          Agenium Group develops high value-added expertise solutions in Defense, Industry and Space.
+        description: | # this will include new lines to allow paragraphs
+          I used to create custom applications with a software suite dedicated to the simulation of space, aeronautical, terrestrial and maritime systems: STK (System Tool Kit) developed by [AGI](https://www.agi.com). 
+          
+          I also conducted trainings for VBS, developed by [Bohemia Interactive Simulations company](https://bisimulations.com/), to administrate scenario, script AI and create map.
+
   - title: Education
     layout: list
     content:
-      - layout: top-right
-        title: Institution name
-        sub_title: Qualifications (eg. BA Performing Arts)
-        caption: Date Range (eg. 2016 - 2019)
-        quote: >
-          Short institution or course description (optional)
+      - layout: top
+        title: Cergy-Pontoise University
+        sub_title: Master 2 Systèmes informatiques intelligents et communicants (SIIC)
+        caption: 2002 - 2006
         description: | # this will include new lines to allow paragraphs
-          Description of qualification
+
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
-      This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
+      Microsoft certified in C# programming (70-483) and Azure Fundamentals (AZ-900)
 
-      Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
+      VBS certified in Administrator and terrain courses
+
+      STK certification
 
 # Footer
-footer_show_references: false
-# references_title: References on request (Override references text)
+footer_show_references: true
+references_title: modern-resume-theme
 
 # Build settings
 # theme: modern-resume-theme (Use this is you are hosting your resume yourself)
