@@ -1,0 +1,49 @@
+---
+interface Props {
+    codes: string[];
+}
+const { codes } = Astro.props;
+
+const certifications = [
+    {
+        code: "AZ-900",
+        level: 1,
+        logo: "https://learn.microsoft.com/fr-fr/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
+        name: "Azure Fundamentals",
+        url: "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-fundamentals",
+    },
+    {
+        code: "AZ-104",
+        level: 2,
+        logo: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+        name: "Azure Administrator Associate",
+        url: "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/",
+    },
+];
+---
+
+<div class="flex justify-center flex-wrap">
+    {
+        certifications
+            .filter((c) => codes.includes(c.code))
+            .sort((a, b) => a.level - b.level)
+            .map((c) => (
+                <div class="flex w-64 justify-center p-4">
+                    <a
+                        href={c.url}
+                        class="flex flex-col items-center gap-1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            src={c.logo}
+                            alt={c.name}
+                            class="w-24 h-24 transition-all duration-700 hover:scale-110"
+                        />
+                        <h4>{c.code}</h4>
+                        <div class="text-sm font-extralight">{c.name}</div>
+                    </a>
+                </div>
+            ))
+    }
+</div>

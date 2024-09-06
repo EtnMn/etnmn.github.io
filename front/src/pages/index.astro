@@ -1,20 +1,15 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
 import Prose from "@/components/prose.astro";
-import { getEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { formatDisplayedDate } from "@/utils/date";
+import config from "@/config.json";
+import Certifications from "@/components/certifications.astro";
 
-const about = await getEntry("resume", "about");
-const { Content: About } = await about.render();
-
-const experience = await getEntry("resume", "experience");
-const { Content: Experience } = await experience.render();
 const allExperiences = await getCollection("experience");
 allExperiences.sort((a, b) => b.data.start.getTime() - a.data.start.getTime());
 
-const education = await getEntry("resume", "education");
-const { Content: Education } = await education.render();
 const allEducations = await getCollection("education");
 const images = import.meta.glob<{ default: ImageMetadata }>(
     "../assets/*.{jpeg,jpg,png,gif}"
@@ -23,22 +18,26 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 <BaseLayout>
     {
-        about?.body && (
+        (
             <section class="mt-10">
                 <div class="flex items-center">
-                    {about.data.photo && (
+                    {config.personnal.photo && (
                         <Image
-                            src={images[about.data.photo]()}
+                            src={images[config.personnal.photo]()}
                             alt="photo"
                             class="photo p-5 mr-10 max-w-64 justify-self-center border-2 border-dashed hidden sm:block border-gray-500"
                         />
                     )}
-                    <div>
-                        <h3 class="font-light mb-4">{about.data.title}</h3>
-                        <Prose>
-                            <About />
-                        </Prose>
-                    </div>
+                    {config.about.text && (
+                        <div>
+                            <h3 class="font-light mb-4">
+                                {config.about.title}
+                            </h3>
+                            <Prose>
+                                <Fragment set:html={config.about.text} />
+                            </Prose>
+                        </div>
+                    )}
                 </div>
             </section>
         )
@@ -47,15 +46,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         <h3
             class="mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
         >
-            {experience.data.title}
+            {config.experience.title}
         </h3>
-        {
-            experience?.body && (
-                <Prose>
-                    <Experience />
-                </Prose>
-            )
-        }
         {
             allExperiences && (
                 <div class="flex flex-col gap-y-10 mt-10">
@@ -106,15 +98,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         <h3
             class="mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
         >
-            {education.data.title}
+            {config.education.title}
         </h3>
-        {
-            education?.body && (
-                <Prose>
-                    <Education />
-                </Prose>
-            )
-        }
         {
             allEducations && (
                 <div class="grid grid-cols-2 gap-4">
@@ -136,5 +121,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 </div>
             )
         }
+    </section>
+    <section class="mt-10">
+        <h3
+            class="mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
+        >
+            {config.certifications.title}
+        </h3>
+        <Certifications codes={config.certifications.codes} />
     </section>
 </BaseLayout>

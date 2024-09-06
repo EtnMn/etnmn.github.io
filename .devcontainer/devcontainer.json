@@ -17,7 +17,8 @@
                 "esbenp.prettier-vscode",
                 "ms-azuretools.vscode-docker",
                 "Vue.volar",
-                "VisualStudioExptTeam.vscodeintellicode"
+                "VisualStudioExptTeam.vscodeintellicode",
+                "bradlc.vscode-tailwindcss"
             ]
         }
     }
