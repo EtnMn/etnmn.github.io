@@ -1,7 +1,7 @@
 ---
 title: Groupe Onepoint
 subTitle: Software Developer for Brioche Pasquier
-start: 2015-08-01
+start: 2015-04-01
 end: 2018-11-01
 link: https://www.groupeonepoint.com/
 ---

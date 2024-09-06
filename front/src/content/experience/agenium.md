@@ -1,7 +1,7 @@
 ---
 title: Agenium
 subTitle: Software Developer
-start: 2006-01-01
+start: 2005-12-01
 end: 2015-04-01
 link: https://www.agenium.com/
 ---
