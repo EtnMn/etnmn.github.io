@@ -4,7 +4,7 @@ const { class: className, ...rest } = Astro.props;
 
 <button
     id="themeToggle"
-    class:list={["py-1", className]}
+    class:list={["py-1;", className]}
     aria-label="Toggle theme"
     role="switch"
 >
@@ -30,7 +30,7 @@ const { class: className, ...rest } = Astro.props;
 
 <style>
     .sun {
-        fill: black;
+        fill: #374151;
     }
     .moon {
         fill: transparent;
