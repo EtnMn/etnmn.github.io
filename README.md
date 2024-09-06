@@ -1,4 +1,4 @@
-# EtnMn Resume [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/withastro/astro/blob/main/LICENSE) [![Astro](https://badge.fury.io/js/astro.svg)](https://badge.fury.io/js/astro)
+# EtnMn Resume [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/withastro/astro/blob/main/LICENSE) [![Deploy to GitHub Pages](https://github.com/EtnMn/etnmn.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/EtnMn/etnmn.github.io/actions/workflows/deploy.yml)
 
 ## Overview
 
