@@ -14,6 +14,7 @@ const base = url?.endsWith("/") ? url.slice(0, -1) : url;
             href={`${base}/${profil}`}
             target="_blank"
             class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+            rel="noopener noreferrer"
         >
             <slot />
         </a>

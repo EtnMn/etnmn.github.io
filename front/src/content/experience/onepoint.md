@@ -6,8 +6,6 @@ end: 2018-11-01
 link: https://www.groupeonepoint.com/
 ---
 
-Brioche Pasquier is a traditional French family bakery
+Through OnePoint, I worked for <mark>Pasquier</mark>, a leading French company in the food industry, specializing in the production and commercialization of industrial pastries and baked goods.
 \
-As an IT consultant, I helped development teams to create a completely new version of the systems in charge of the logistic and products.
-\
-The main challenge was to develop a brand new Winform application considering legacy constraint such as DB2/AS400 database and applications.
+I conducted technical studies and designs for the overhaul of Pasquier’s <mark>Logistics systems</mark>, utilizing C#, <mark>Winform</mark> and a <mark>DB2/AS400</mark> database.

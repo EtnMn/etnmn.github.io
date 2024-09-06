@@ -35,9 +35,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                             <h3 class="font-light mb-4">
                                 {config.about.title}
                             </h3>
-                            <Prose>
-                                <Fragment set:html={config.about.text} />
-                            </Prose>
+                            <p>
+                                <Prose>
+                                    <Fragment set:html={config.about.text} />
+                                </Prose>
+                            </p>
                         </div>
                     )}
                 </div>

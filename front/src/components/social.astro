@@ -2,21 +2,20 @@
 import SocialLink from "@/components/social-link.astro";
 
 interface Props {
-    socials: {
+    networks: {
         github?: string;
         linkedin?: string;
         twitter?: string;
     };
-    web?: string;
 }
 
-const { socials, web } = Astro.props;
+const { networks } = Astro.props;
 ---
 
 <div class="inline-block text-center">
     <ul class="mb-1 block">
         <li class="inline-block pl-2">
-            <SocialLink url="https://www.github.com" profil={socials.github}>
+            <SocialLink url="https://www.github.com" profil={networks.github}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="w-10 h-10"
@@ -31,7 +30,7 @@ const { socials, web } = Astro.props;
             </SocialLink>
         </li>
         <li class="inline-block pl-2">
-            <SocialLink url="https://github.com" profil={socials.github}>
+            <SocialLink url="https://github.com" profil={networks.github}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
@@ -47,7 +46,7 @@ const { socials, web } = Astro.props;
         <li class="inline-block pl-2">
             <SocialLink
                 url="https://www.linkedin.com/in"
-                profil={socials.linkedin}
+                profil={networks.linkedin}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

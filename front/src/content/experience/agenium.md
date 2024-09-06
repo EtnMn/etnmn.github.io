@@ -1,13 +1,13 @@
 ---
 title: Agenium
 subTitle: Software Developer
-start: 2006-10-01
+start: 2006-01-01
 end: 2015-04-01
 link: https://www.agenium.com/
 ---
 
-Agenium Group develops high value-added expertise solutions in Defense, Industry and Space.
+Agenium Group develops high value-added expertise solutions in <mark>Defense</mark>, <mark>Industry</mark> and <mark>Space</mark>.
 \
-I used to create custom applications with a software suite dedicated to the simulation of space, aeronautical, terrestrial and maritime systems: STK (System Tool Kit) developed by AGI.
+<mark>C#</mark> development capabilities for STK include creating robust, high-performance applications for satellite and space mission analysis. It allows for extensive customization and integration with other systems.
 \
-I also conducted trainings for VBS, developed by Bohemia Interactive Simulations company, to administrate scenario, script AI and create map.
+I also conducted training sessions for <mark>VBS</mark>, developed by Bohemia Interactive Simulations, to manage scenarios, script AI, and create maps.

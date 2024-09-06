@@ -19,7 +19,7 @@
             "level": 3,
             "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
             "name": "Azure DevOps Engineer Expert",
-            "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-devops-engineer/"
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/devops-engineer/"
         },
         {
             "code": "AI-102",
@@ -40,7 +40,7 @@
             "level": 1,
             "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
             "name": "Security, Compliance, and Identity Fundamentals",
-            "url": "https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-identity-fundamentals/"
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/"
         }
     ]
 }

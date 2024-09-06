@@ -5,8 +5,6 @@ start: 2018-11-01
 link: https://www.expertime.com/
 ---
 
-Expertime is a specialized consulting and integration company for collaborative solutions in the Microsoft environment.
+Expertime is a consulting firm specializing in digital transformation, primarily using <mark>Microsoft</mark> solutions. They assist clients in modernizing applications, leveraging data, and enhancing e-commerce capabilities.
 \
-I work with internal teams to design, develop and maintain software. I create applications from scratch, starting from a configure Azure res and provide user support.
-\
-Web App and API mainly use ASP .NET Core framework and are hosted on Azure to take advantage of all its capabilities, such as security, load balancing, continuous deployment…
+I am a Lead Developer and Team Leader specializing in web projects using <mark>.NET</mark>, <mark>Sql Server</mark> and <mark>Vue.js</mark>, delivering scalable and high-performance applications, hosted on <mark>Azure</mark>.
