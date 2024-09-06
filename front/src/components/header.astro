@@ -1,6 +1,7 @@
 ---
 import type { Config } from "@/layouts/base-layout.astro";
 import Social from "@/components/social.astro";
+import ThemeSelector from "@/components/theme-selector.astro";
 
 interface Props {
     config: Config;
@@ -8,14 +9,17 @@ interface Props {
 const { config } = Astro.props;
 ---
 
-<header class="flex flex-wrap text-center md:text-left">
-    <div class="mt-6 w-full md:w-2/3">
-        <h1 class="leading-tight">{config.personnal.name}</h1>
-        <h2 class="leading-tight font-extralight mb-2">
-            {config.personnal.title}
-        </h2>
-    </div>
-    <div class="w-full md:w-1/3 md:text-right">
-        <Social socials={config.socials} web={config.personnal.website} />
+<header class="flex flex-col">
+    <ThemeSelector class="self-end" />
+    <div class="flex flex-wrap justify-around gap-3 text-center sm:text-left">
+        <div class="mt-6 flex-grow">
+            <h1 class="leading-tight">{config.personnal.name}</h1>
+            <h2 class="leading-tight font-light mb-2">
+                {config.personnal.title}
+            </h2>
+        </div>
+        <div class="sm:mt-3">
+            <Social socials={config.socials} web={config.personnal.website} />
+        </div>
     </div>
 </header>

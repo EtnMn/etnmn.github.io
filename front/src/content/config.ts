@@ -23,9 +23,10 @@ const experienceCollection = defineCollection({
 const educationCollection = defineCollection({
     type: "content",
     schema: z.object({
+        location: z.string().optional(),
         title: z.string(),
-        subTitle: z.string().optional(),
-        caption: z.string().optional(),
+        start: z.date(),
+        end: z.date().optional(),
         link: z.string().optional(),
     }),
 });
