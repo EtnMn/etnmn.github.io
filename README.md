@@ -1,4 +1,4 @@
-# EtnMn Resume [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/withastro/astro/blob/main/LICENSE) [![Deploy to GitHub Pages](https://github.com/EtnMn/etnmn.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/EtnMn/etnmn.github.io/actions/workflows/deploy.yml)
+# EtnMn Resume [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/EtnMn/etnmn.github.io/blob/main/LICENSE) [![Deploy to GitHub Pages](https://github.com/EtnMn/etnmn.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/EtnMn/etnmn.github.io/actions/workflows/deploy.yml)
 
 ## Overview
 
@@ -73,6 +73,12 @@ Certification full list can be edited in `src/assets/certifications.json`.
 To edit the base layouts of all pages, edit the `src/layouts/BaseLayout.astro` file.
 
 To edit the layout of a blog article, edit the `src/layouts/BlogPost.astro` file.
+
+## Deploy
+
+You can deploy an Astro site to GitHub Pages by using GitHub Actions to automatically build and deploy your site. To do this, your source code must be hosted on GitHub.
+
+Astro maintains the official withastro/action to deploy your project with very little configuration. Follow [Astro's instructions](https://docs.astro.build/en/guides/deploy/github/) to deploy your site to GitHub pages. You can set up your own custom domain by editing the CNAME file.
 
 ## License
 
