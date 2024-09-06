@@ -1,14 +1,9 @@
 ---
 import Header from "@/components/header.astro";
+import Footer from "@/components/footer.astro";
 import "@/styles/global.css";
 import config from "@/config.json";
 export type Config = typeof config;
-
-interface Props {
-    title: string;
-}
-
-const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,7 +12,7 @@ const { title } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
+        <title>{config.personnal.name}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -26,9 +21,12 @@ const { title } = Astro.props;
         />
     </head>
     <body
-        class="mt-12 md:container md:max-w-screen-xl dark:text-white bg-gray-100 dark:bg-stone-900"
+        class="pt-12 container max-w-screen-xl dark:text-white bg-gray-100 dark:bg-stone-900 flex flex-col"
     >
         <Header config={config} />
-        <slot />
+        <main class="grow">
+            <slot />
+        </main>
+        <Footer text={config.footer} />
     </body>
 </html>

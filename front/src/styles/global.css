@@ -2,6 +2,10 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
+body {
+    height: 100vh;
+}
+
 h1 {
     font-size: 2.5rem;
     font-weight: 500;
@@ -13,4 +17,23 @@ h2 {
 
 h3 {
     font-size: 1.5rem;
+}
+
+.photo {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+mark {
+    background-color: #4b5563;
+    color: #fff;
+    padding: 2px 4px;
+    font-size: 90%;
+    border-radius: 255px 25px 225px 15px/15px 225px 15px 255px;
+}
+
+@media (prefers-color-scheme: dark) {
+    mark {
+        background-color: #9ca3af;
+        color: #111827;
+    }
 }
