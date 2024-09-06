@@ -1,4 +1,4 @@
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection } from "astro:content";
 
 const resumeCollection = defineCollection({
     type: "content",
@@ -14,12 +14,24 @@ const experienceCollection = defineCollection({
         title: z.string(),
         subTitle: z.string().optional(),
         caption: z.string().optional(),
+        start: z.date(),
+        end: z.date().optional(),
         link: z.string().optional(),
     }),
 });
 
+const educationCollection = defineCollection({
+    type: "content",
+    schema: z.object({
+        title: z.string(),
+        subTitle: z.string().optional(),
+        caption: z.string().optional(),
+        link: z.string().optional(),
+    }),
+});
 
 export const collections = {
-    "resume": resumeCollection,
-    "experience": experienceCollection,
+    resume: resumeCollection,
+    experience: experienceCollection,
+    education: educationCollection,
 };

@@ -1,3 +1,13 @@
-<div class="prose max-w-none dark:prose-invert prose-p:text-justify">
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+    class:list={[
+        "prose max-w-none dark:prose-invert prose-p:text-justify",
+        className,
+    ]}
+    {...rest}
+>
     <slot />
 </div>

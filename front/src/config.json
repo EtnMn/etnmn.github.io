@@ -9,5 +9,17 @@
         "linkedin": "etienne-menou",
         "x": "etnmn"
     },
-    "footer": "©2024 Etienne MENOU"
+    "footer": {
+        "text": "2024",
+        "links": [
+            {
+                "name": "Astro",
+                "url": "https://astro.build/"
+            },
+            {
+                "name": "modern-resume-theme",
+                "url": "https://github.com/sproogen/modern-resume-theme"
+            }
+        ]
+    }
 }

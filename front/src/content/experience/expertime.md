@@ -1,7 +1,7 @@
 ---
 title: Expertime
 subTitle: Software Developer
-caption: November 2018 - present
+start: 2018-11-01
 link: https://www.expertime.com/
 ---
 

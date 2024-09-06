@@ -27,6 +27,6 @@ export type Config = typeof config;
         <main class="grow">
             <slot />
         </main>
-        <Footer text={config.footer} />
+        <Footer text={config.footer.text} links={config.footer.links} />
     </body>
 </html>

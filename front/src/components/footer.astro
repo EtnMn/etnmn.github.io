@@ -1,15 +1,25 @@
 ---
 interface Props {
     text: string;
+    links?: { url: string; name: string }[];
 }
 
-const { text: copyright } = Astro.props;
+const { text, links } = Astro.props;
 ---
 
 {
-    copyright && (
-        <p class="p-3 mt-12 text-center text-gray-500 dark:text-gray-400">
-            {copyright}
+    text && (
+        <p class="p-3 mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
+            {text}
+            {links &&
+                links.map((link) => (
+                    <a
+                        href={link.url}
+                        class="text-sm text-gray-500 dark:text-gray-400"
+                    >
+                        - {link.name}
+                    </a>
+                ))}
         </p>
     )
 }
