@@ -5,6 +5,11 @@ import Footer from "@/components/footer.astro";
 import "@/styles/global.css";
 import config from "@/config.json";
 export type Config = typeof config;
+
+interface Props {
+    title?: string;
+}
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -13,7 +18,7 @@ export type Config = typeof config;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{config.personnal.name}</title>
+        <title>{config.personnal.name} {title ? " | " + title : ""}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -25,7 +30,7 @@ export type Config = typeof config;
         class="pt-12 container max-w-screen-xl dark:text-white bg-gray-100 dark:bg-stone-900 flex flex-col"
     >
         <Header config={config} />
-        <main class="grow">
+        <main class="grow mt-10">
             <slot />
         </main>
         <Footer text={config.footer.text} links={config.footer.links} />

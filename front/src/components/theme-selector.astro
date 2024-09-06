@@ -32,6 +32,9 @@ const { class: className, ...rest } = Astro.props;
     .sun {
         fill: #374151;
     }
+    #themeToggle:hover .sun {
+        fill: #000;
+    }
     .moon {
         fill: transparent;
     }
@@ -40,6 +43,9 @@ const { class: className, ...rest } = Astro.props;
         fill: transparent;
     }
     :global(.dark) .moon {
+        fill: #6b7280;
+    }
+    :global(.dark) #themeToggle:hover .moon {
         fill: white;
     }
 </style>
