@@ -1,6 +1,6 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "EtnMn",
+	"name": "EtnMn website",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
@@ -12,6 +12,8 @@
 		"vscode": {
 			"extensions": [
 				"astro-build.astro-vscode",
+				"EditorConfig.EditorConfig",
+				"dbaeumer.vscode-eslint",
 				"ms-azuretools.vscode-docker",
 				"Vue.volar",
 				"VisualStudioExptTeam.vscodeintellicode"
