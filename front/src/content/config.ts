@@ -8,7 +8,18 @@ const resumeCollection = defineCollection({
     }),
 });
 
+const experienceCollection = defineCollection({
+    type: "content",
+    schema: z.object({
+        title: z.string(),
+        subTitle: z.string().optional(),
+        caption: z.string().optional(),
+        link: z.string().optional(),
+    }),
+});
+
 
 export const collections = {
-    "about": resumeCollection,
+    "resume": resumeCollection,
+    "experience": experienceCollection,
 };

@@ -1,6 +1,6 @@
 ---
-title: "About Me"
-photo: "../assets/photo.png"
+title: About Me
+photo: ../assets/photo.png
 ---
 
 Hi, My name is Etienne and I'm a .NET developer with over 10 years in the business. I specialize in C# and have professional experience working with JavaScript. Based in Nantes, my main responsibilities include building reliable and a pleasant to use web applications and maintain them.

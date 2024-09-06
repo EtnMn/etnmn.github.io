@@ -1,13 +1,18 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
-import { getEntry } from "astro:content";
+import Prose from "@/components/prose.astro";
+import { getEntry, getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
 const about = await getEntry("resume", "about");
 const { Content: About } = await about.render();
 
+const experience = await getEntry("resume", "experience");
+const { Content: Experience } = await experience.render();
+const allExperiences = await getCollection("experience");
+
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    "../assets/*.{jpeg,jpg,png,gif}",
+    "../assets/*.{jpeg,jpg,png,gif}"
 );
 ---
 
@@ -23,14 +28,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                     />
                     <div class="">
                         <h3 class="font-light mb-4">{about.data.title}</h3>
-                        <div
-                            class="prose
-                                max-w-none
-                                dark:prose-invert
-                                prose-p:text-justify"
-                        >
+                        <Prose>
                             <About />
-                        </div>
+                        </Prose>
                     </div>
                 </div>
             </section>
@@ -40,38 +40,37 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         <h3
             class="mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
         >
-            Experience
+            {experience.data.title}
         </h3>
-        <div class="flex gap-x-10 text-justify">
-            <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
-                <h4>Expertime</h4><p><b>Software Developer</b></p><p>
-                    November 2018 - present
-                </p>
-                <a
-                    href="https://www.expertime.com/"
-                    target="_blank"
-                    class="link">https://www.expertime.com/</a
-                ><p class="no-print aditional-links"></p>
-            </div>
-            <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-                <p class="quote">
-                    Expertime is a specialized consulting and integration
-                    company for collaborative solutions in the Microsoft
-                    environment.
-                </p><p>
-                    I work with internal teams to design, develop and maintain
-                    software. I create applications from scratch, starting from
-                    a configure Azure res and provide user support.
-                </p>
-
-                <p>
-                    Web App and API mainly use ASP .NET Core framework and are
-                    hosted on Azure to take advantage of all its capabilities,
-                    such as <em
-                        >security, load balancing, continuous deployment…</em
-                    >
-                </p>
-            </div>
-        </div>
+        {
+            experience?.body && (
+                <Prose>
+                    <Experience />
+                </Prose>
+            )
+        }
+        {
+            allExperiences && (
+                <div class="flex flex-col gap-y-10 mt-10">
+                    {allExperiences.map(async (e) => {
+                        const { Content } = await e.render();
+                        return (
+                            <div class="flex gap-x-10 flex-col sm:flex-row">
+                                <div class="basis-1/4">
+                                    <h4>{e.data.title}</h4>
+                                    <p>{e.data.subTitle}</p>
+                                    <p>{e.data.caption}</p>
+                                </div>
+                                <div class="basis-3/4">
+                                    <Prose>
+                                        <Content />
+                                    </Prose>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            )
+        }
     </section>
 </BaseLayout>
