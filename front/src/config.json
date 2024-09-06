@@ -7,7 +7,11 @@
         "title": "Certifications",
         "codes": [
             "AZ-900",
-            "AZ-104"
+            "AZ-104",
+            "AZ-400",
+            "AI-102",
+            "DP-900",
+            "SC-900"
         ]
     },
     "education": {

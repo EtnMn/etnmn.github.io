@@ -4,31 +4,22 @@ interface Props {
 }
 const { codes } = Astro.props;
 
-const certifications = [
-    {
-        code: "AZ-900",
-        level: 1,
-        logo: "https://learn.microsoft.com/fr-fr/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
-        name: "Azure Fundamentals",
-        url: "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-fundamentals",
-    },
-    {
-        code: "AZ-104",
-        level: 2,
-        logo: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
-        name: "Azure Administrator Associate",
-        url: "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/",
-    },
-];
+import certifications from "@/assets/certifications.json";
 ---
 
 <div class="flex justify-center flex-wrap">
     {
-        certifications
+        certifications.microsoft
             .filter((c) => codes.includes(c.code))
-            .sort((a, b) => a.level - b.level)
+            .sort((a, b) => {
+                if (a.level === b.level) {
+                    return a.code.localeCompare(b.code);
+                }
+
+                return b.level - a.level;
+            })
             .map((c) => (
-                <div class="flex w-64 justify-center p-4">
+                <div class="flex w-64 justify-center p-4 text-center">
                     <a
                         href={c.url}
                         class="flex flex-col items-center gap-1"
@@ -38,7 +29,7 @@ const certifications = [
                         <img
                             src={c.logo}
                             alt={c.name}
-                            class="w-24 h-24 transition-all duration-700 hover:scale-110"
+                            class="w-24 h-24 transition-all duration-700 hover:scale-110 drop-shadow-[0px_0px_2px_rgba(229,231,235,0.4)]"
                         />
                         <h4>{c.code}</h4>
                         <div class="text-sm font-extralight">{c.name}</div>

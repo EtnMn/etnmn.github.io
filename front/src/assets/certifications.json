@@ -1,0 +1,46 @@
+{
+    "microsoft": [
+        {
+            "code": "AZ-900",
+            "level": 1,
+            "logo": "https://learn.microsoft.com/fr-fr/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
+            "name": "Azure Fundamentals",
+            "url": "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-fundamentals"
+        },
+        {
+            "code": "AZ-104",
+            "level": 2,
+            "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+            "name": "Azure Administrator Associate",
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/"
+        },
+        {
+            "code": "AZ-400",
+            "level": 3,
+            "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-expert-badge.svg",
+            "name": "Azure DevOps Engineer Expert",
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-devops-engineer/"
+        },
+        {
+            "code": "AI-102",
+            "level": 2,
+            "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
+            "name": "Azure AI Engineer Associate",
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-engineer/"
+        },
+        {
+            "code": "DP-900",
+            "level": 1,
+            "logo": "https://learn.microsoft.com/fr-fr/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
+            "name": "Azure Data Fundamentals",
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/"
+        },
+        {
+            "code": "SC-900",
+            "level": 1,
+            "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
+            "name": "Security, Compliance, and Identity Fundamentals",
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-identity-fundamentals/"
+        }
+    ]
+}
