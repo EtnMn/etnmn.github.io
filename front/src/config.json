@@ -1,5 +1,12 @@
 {
     "personnal": {
-        "name": "Etienne MENOU"
+        "name": "Etienne MENOU",
+        "title": "Web Developer",
+        "Website": "https://www.menou.fr"
+    },
+    "socials": {
+        "github": "etnmn",
+        "linkedin": "etienne-menou",
+        "x": "etnmn"
     }
 }

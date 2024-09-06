@@ -1,5 +1,4 @@
 html {
-    background-color: #f6f8fa;
     font-family: "Roboto", sans-serif;
 }
 
@@ -9,5 +8,9 @@ h1 {
 }
 
 h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
     font-size: 1.5rem;
 }

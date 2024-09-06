@@ -1,0 +1,21 @@
+---
+import type { Config } from "@/layouts/base-layout.astro";
+import Social from "@/components/social.astro";
+
+interface Props {
+    config: Config;
+}
+const { config } = Astro.props;
+---
+
+<header class="flex flex-wrap text-center md:text-left">
+    <div class="mt-6 w-full md:w-2/3">
+        <h1 class="leading-tight">{config.personnal.name}</h1>
+        <h2 class="leading-tight font-extralight mb-2">
+            {config.personnal.title}
+        </h2>
+    </div>
+    <div class="w-full md:w-1/3 md:text-right">
+        <Social socials={config.socials} web={config.personnal.Website} />
+    </div>
+</header>
