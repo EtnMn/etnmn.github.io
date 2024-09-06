@@ -1,23 +1,23 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "EtnMn website",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-	"remoteUser": "node",
-	"features": {
-		"ghcr.io/devcontainers-contrib/features/pnpm:2": {}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"astro-build.astro-vscode",
-				"EditorConfig.EditorConfig",
-				"dbaeumer.vscode-eslint",
-				"ms-azuretools.vscode-docker",
-				"Vue.volar",
-				"VisualStudioExptTeam.vscodeintellicode"
-			]
-		}
-	}
+    "name": "EtnMn website",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "node",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/pnpm:2": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "astro-build.astro-vscode",
+                "EditorConfig.EditorConfig",
+                "dbaeumer.vscode-eslint",
+                "ms-azuretools.vscode-docker",
+                "Vue.volar",
+                "VisualStudioExptTeam.vscodeintellicode"
+            ]
+        }
+    }
 }
