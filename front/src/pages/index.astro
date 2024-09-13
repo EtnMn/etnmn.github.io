@@ -54,7 +54,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         </h3>
         {
             allExperiences && (
-                <div class="flex flex-col gap-y-10 mt-10">
+                <div class="flex flex-col gap-y-10">
                     {allExperiences.map(async (e) => {
                         const { Content } = await e.render();
                         return (
