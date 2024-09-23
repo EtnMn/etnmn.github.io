@@ -23,13 +23,15 @@ function orderTagByCount(tags: string[]) {
 }
 ---
 
-<h4 class="leading-loose">Tags</h4>
-<div class="flex flex-wrap gap-2 mb-6">
-    {
-        tags.slice(0, 10).map((t) => (
-            <a href={`/tags/${t}`}>
-                <Chip>{t}</Chip>
-            </a>
-        ))
-    }
-</div>
+{tags.length > 0 &&
+    <h4 class="leading-loose">Tags</h4>
+    <div class="flex flex-wrap gap-2 mb-6">
+        {
+            tags.slice(0, 10).map((t) => (
+                <a href={`/tags/${t}`}>
+                    <Chip>{t}</Chip>
+                </a>
+            ))
+        }
+    </div>
+}

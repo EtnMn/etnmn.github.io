@@ -1,11 +1,11 @@
 ---
 title: "My First Post"
-subTitle: "What a test"
+subTitle: "Demo post"
 published: 2024-01-01
-tags: ["test", "code", "md", "other"]
+tags: ["dev"]
 ---
 
-This is a test
+This is a demo post with code.
 
 ```js
 import { defineConfig } from "astro/config";
