@@ -1,9 +1,15 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/base-layout.astro";
-import Chip from "@/components/chip.astro";
 import { formatDisplayedFullDate } from "@/utils/date";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
+import AsideTags from "@/components/aside-tags.astro";
+import AsidePosts from "@/components/aside-posts.astro";
+import config from "@/config.json";
+
+if (!config?.blog?.enabled) {
+    return Astro.rewrite("/404");
+}
 
 const title = "Posts";
 
@@ -81,13 +87,34 @@ export const getStaticPaths = (async ({ paginate }) => {
                     </section>
                 ))
             }
+
+            <div class="flex gap-1 justify-center">
+                {
+                    page.url.prev ? (
+                        <a
+                            href={page.url.prev}
+                            class="border-shapped flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
+                        >
+                            Previous
+                        </a>
+                    ) : null
+                }
+
+                {
+                    page.url.next ? (
+                        <a
+                            href={page.url.next}
+                            class="border-shapped flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
+                        >
+                            Next
+                        </a>
+                    ) : null
+                }
+            </div>
         </div>
         <aside>
-            <h4 class="leading-loose">Tags</h4>
-            <div class="flex flex-wrap gap-3">
-                <Chip icon="hashtag">zzz</Chip>
-                <Chip icon="github">zzz</Chip>
-            </div>
+            <AsidePosts />
+            <AsideTags />
         </aside>
     </div>
 </BaseLayout>

@@ -1,0 +1,35 @@
+---
+import Chip from "@/components/chip.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const tags = orderTagByCount(
+    posts.map((post) => [...new Set(post.data.tags)]).flat()
+);
+
+function orderTagByCount(tags: string[]) {
+    const t = tags.reduce((acc: { [key: string]: number }, tag: string) => {
+        acc[tag] = (acc[tag] ?? 0) + 1;
+        return acc;
+    }, {});
+
+    return Object.keys(t).sort((a, b) => {
+        if (t[a] !== t[b]) {
+            return t[b] - t[a];
+        } else {
+            return a.localeCompare(b);
+        }
+    });
+}
+---
+
+<h4 class="leading-loose">Tags</h4>
+<div class="flex flex-wrap gap-2 mb-6">
+    {
+        tags.slice(0, 10).map((t) => (
+            <a href={`/tags/${t}`}>
+                <Chip>{t}</Chip>
+            </a>
+        ))
+    }
+</div>

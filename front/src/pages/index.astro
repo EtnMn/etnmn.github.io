@@ -27,7 +27,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                         <Image
                             src={images[config.personnal.photo]()}
                             alt="photo"
-                            class="photo p-5 mr-10 max-w-64 justify-self-center border-2 border-dashed hidden sm:block border-gray-500"
+                            class="border-shapped p-5 mr-10 max-w-64 justify-self-center border-2 border-dashed hidden sm:block border-gray-500"
                         />
                     )}
                     {config.about.text && (

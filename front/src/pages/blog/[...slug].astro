@@ -1,6 +1,12 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
 import { getCollection } from "astro:content";
+import config from "@/config.json";
+
+if (!config?.blog?.enabled) {
+    return Astro.rewrite("/404");
+}
+
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
     const blogEntries = await getCollection("posts");

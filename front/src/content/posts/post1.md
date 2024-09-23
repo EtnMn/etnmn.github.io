@@ -2,7 +2,7 @@
 title: "My First Post"
 subTitle: "What a test"
 published: 2024-01-01
-tags: ["test"]
+tags: ["test", "code", "md", "other"]
 ---
 
 This is a test

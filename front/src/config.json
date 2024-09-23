@@ -3,6 +3,9 @@
         "text": "As an experienced <mark>Full Stack Developer</mark>, I have solid expertise in creating robust and high-performance business web applications. My proficiency in .NET and JavaScript frameworks like <mark>C#</mark>, <mark>Vue.js</mark>, and Nuxt allows me to design comprehensive solutions from the database to the frontend, primarily targeting <mark>Azure</mark> cloud. As a <mark>team leader</mark>, I manage a team of five, coordinating efforts, assigning tasks, and maintaining high levels of motivation and productivity.",
         "title": "About Me"
     },
+    "blog": {
+        "enabled": false
+    },
     "certifications": {
         "title": "Certifications",
         "codes": [
