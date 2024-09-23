@@ -18,7 +18,8 @@
                 "ms-azuretools.vscode-docker",
                 "Vue.volar",
                 "VisualStudioExptTeam.vscodeintellicode",
-                "bradlc.vscode-tailwindcss"
+                "bradlc.vscode-tailwindcss",
+                "DotJoshJohnson.xml"
             ]
         }
     }

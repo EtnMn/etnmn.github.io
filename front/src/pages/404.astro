@@ -1,0 +1,18 @@
+---
+import ErrorLayout from "@/layouts/error-layout.astro";
+import "@/styles/global.css";
+
+import { Icon } from "astro-icon/components";
+---
+
+<ErrorLayout
+    code="404"
+    description="Try heading back to the homepage."
+    title="Oops! It looks like this page has gone missing."
+>
+    <Icon
+        slot="image"
+        name="not-found"
+        class="w-52 h-full dark:text-gray-400 text-gray-500"
+    />
+</ErrorLayout>

@@ -70,9 +70,9 @@ Certification full list can be edited in `src/assets/certifications.json`.
 
 ### Layouts
 
-To edit the base layouts of all pages, edit the `src/layouts/BaseLayout.astro` file.
+To edit the base layouts of all pages, edit the `src/layouts/base-layout.astro` file.
 
-To edit the layout of a blog article, edit the `src/layouts/BlogPost.astro` file.
+To edit the layout of the errors pages, edit the `src/layouts/error-layout.astro` file.
 
 ## Deploy
 
