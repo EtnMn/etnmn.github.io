@@ -4,8 +4,9 @@
         "EditorConfig.EditorConfig",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "Vue.volar",
-        "VisualStudioExptTeam.vscodeintellicode"
+        "VisualStudioExptTeam.vscodeintellicode",
+        "bradlc.vscode-tailwindcss",
+        "DotJoshJohnson.xml"
     ],
     "unwantedRecommendations": []
 }

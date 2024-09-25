@@ -15,12 +15,13 @@
                 "EditorConfig.EditorConfig",
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
-                "ms-azuretools.vscode-docker",
-                "Vue.volar",
                 "VisualStudioExptTeam.vscodeintellicode",
                 "bradlc.vscode-tailwindcss",
                 "DotJoshJohnson.xml"
             ]
         }
-    }
+    },
+    "mounts": [
+        "type=bind,source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,readonly"
+    ]
 }
