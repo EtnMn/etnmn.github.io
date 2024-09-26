@@ -59,13 +59,13 @@ const { code, title, description } = Astro.props;
     </body>
 </html>
 
-<script is:inline>
+<script>
     const theme = (() => {
         if (
             typeof localStorage !== "undefined" &&
             localStorage.getItem("theme")
         ) {
-            return localStorage.getItem("theme");
+            return localStorage.getItem("theme")!;
         }
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
             return "dark";
@@ -80,8 +80,4 @@ const { code, title, description } = Astro.props;
     }
 
     window.localStorage.setItem("theme", theme);
-
-    document
-        .getElementById("themeToggle")
-        .addEventListener("click", handleToggleClick);
 </script>

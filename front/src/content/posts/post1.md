@@ -39,3 +39,9 @@ export default defineConfig({
     },
 });
 ```
+
+Other
+
+```js
+import { defineConfig } from "astro/config";
+```
