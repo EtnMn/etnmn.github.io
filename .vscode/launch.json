@@ -2,10 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "command": "./front/node_modules/.bin/astro dev",
+            "command": "./node_modules/.bin/astro dev --host",
             "name": "Astro Development server",
             "request": "launch",
-            "type": "node-terminal"
+            "type": "node-terminal",
+            "cwd": "${workspaceFolder}/front"
         }
     ]
 }

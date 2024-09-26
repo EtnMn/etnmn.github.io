@@ -7,9 +7,10 @@ import config from "@/config.json";
 export type Config = typeof config;
 
 interface Props {
+    class?: string;
     title?: string;
 }
-const { title } = Astro.props;
+const { class: className, title } = Astro.props;
 ---
 
 <html lang="en">
@@ -30,7 +31,7 @@ const { title } = Astro.props;
         class="pt-12 container max-w-screen-xl dark:text-white bg-gray-100 dark:bg-stone-900 flex flex-col"
     >
         <Header config={config} />
-        <main class="grow mt-10">
+        <main class:list={["grow mt-10", className]}>
             <slot />
         </main>
         <Footer text={config.footer.text} links={config.footer.links} />
