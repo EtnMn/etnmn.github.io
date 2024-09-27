@@ -8,6 +8,9 @@ draft: false
 
 This is a demo post with code.
 
+![An image](./image.png)
+_An image_
+
 ```js
 import { defineConfig } from "astro/config";
 

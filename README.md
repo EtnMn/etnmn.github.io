@@ -14,6 +14,7 @@ A static resume template theme. Powered by [Astro](https://astro.build/) and Git
 -   Responsive & SEO-friendly
 -   Dark / Light mode
 -   [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
+-   Optionnal blog section
 
 ## Credits
 
@@ -67,6 +68,10 @@ To add an experience, insert `.md` files in `src/content/education`.
 ### Certifications components
 
 Certification full list can be edited in `src/assets/certifications.json`.
+
+### Blog
+
+Enable blog section in the `src/config.json` file. To add a post, insert `.md` files in `src/content/posts`.
 
 ### Layouts
 
