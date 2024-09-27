@@ -7,13 +7,14 @@ import AsideTags from "@/components/aside-tags.astro";
 import AsidePosts from "@/components/aside-posts.astro";
 import Chip from "@/components/chip.astro";
 import { Icon } from "astro-icon/components";
+import GoBackButton from "@/components/go-back-button.astro";
 
 if (!config?.blog?.enabled) {
     return Astro.rewrite("/404");
 }
 
 export async function getStaticPaths() {
-    const blogEntries = await getCollection("posts");
+    const blogEntries = await getCollection("posts", (p) => !p.data.draft);
     return blogEntries.map((entry) => ({
         params: { slug: entry.slug },
         props: { entry },
@@ -28,18 +29,11 @@ const { Content } = await post.render();
     class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8"
 >
     <article class="overflow-hidden">
-        <div>
-            <a
-                class="font-extralight mb-1 flex items-center justify-end leading-loose underline-offset-4 decoration-dashed decoration-1 hover:underline"
-                href="/blog"
-            >
-                <Icon name="arrow-left" /> Go back
-            </a>
-        </div>
         <section class="mb-6">
-            <h3>
-                {post.data.title}
-            </h3>
+            <div class="flex flex-wrap justify-between">
+                <h2>{post.data.title}</h2>
+                <GoBackButton to="/blog" />
+            </div>
             <div class="flex flex-wrap items-center gap-1 text-xs">
                 <time
                     class="font-light"

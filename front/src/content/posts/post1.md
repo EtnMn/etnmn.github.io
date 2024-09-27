@@ -3,6 +3,7 @@ title: "My First Post"
 subTitle: "Demo post"
 published: 2024-01-01
 tags: ["dev"]
+draft: true
 ---
 
 This is a demo post with code.

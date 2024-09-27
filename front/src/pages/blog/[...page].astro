@@ -6,6 +6,7 @@ import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 import AsideTags from "@/components/aside-tags.astro";
 import AsidePosts from "@/components/aside-posts.astro";
 import config from "@/config.json";
+import GoBackButton from "@/components/go-back-button.astro";
 
 if (!config?.blog?.enabled) {
     return Astro.rewrite("/404");
@@ -34,7 +35,10 @@ const grouped = page.data.reduce(
 );
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const posts = await getCollection("posts");
+    const posts = await getCollection("posts", (p) => {
+        console.log("grouped", p.data);
+        return !p.data.draft;
+    });
     posts.sort(
         (a, b) => b.data.published.getTime() - a.data.published.getTime()
     );
@@ -47,13 +51,14 @@ export const getStaticPaths = (async ({ paginate }) => {
     class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8"
 >
     <div>
-        <h3 class="font-light mb-5">
-            {title}
-        </h3>
+        <div class="flex flex-wrap justify-between">
+            <h2>{title}</h2>
+            <GoBackButton to="/" />
+        </div>
         {
             grouped.map((g) => (
                 <section>
-                    <h4 class="leading-loose text-lg font-bold">{g.year}</h4>
+                    <h3 class="leading-loose text-lg font-bold">{g.year}</h3>
                     <ul class="flex flex-col gap-y-6 my-6">
                         {g.pages.map((p) => (
                             <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
