@@ -1,25 +1,4 @@
-html {
-    font-family: "Roboto", sans-serif;
-}
-
-body {
-    height: 100vh;
-}
-
-h1 {
-    font-size: 2.5rem;
-    font-weight: 500;
-}
-
-h2 {
-    font-size: 1.5rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-.border-shapped {
+.bordered-shape {
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 

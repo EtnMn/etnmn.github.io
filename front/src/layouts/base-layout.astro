@@ -13,7 +13,7 @@ interface Props {
 const { class: className, title } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="font-roboto">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,7 +28,7 @@ const { class: className, title } = Astro.props;
         />
     </head>
     <body
-        class="pt-12 container max-w-screen-xl dark:text-white bg-gray-100 dark:bg-stone-900 flex flex-col"
+        class="min-h-screen pt-12 container max-w-screen-xl dark:text-white bg-gray-100 dark:bg-stone-900 flex flex-col"
     >
         <Header config={config} />
         <main class:list={["grow mt-10", className]}>
