@@ -1,0 +1,20 @@
+---
+import Icon from "node_modules/astro-icon/components/Icon.astro";
+
+interface Props {
+    class?: string;
+    to: string;
+}
+
+const { class: className, to } = Astro.props;
+---
+
+<a
+    class:list={[
+        "font-extralight flex items-center justify-end underline-offset-4 decoration-dashed decoration-1 hover:underline",
+        className,
+    ]}
+    href={to}
+>
+    <Icon name="arrow-left" /> go back
+</a>

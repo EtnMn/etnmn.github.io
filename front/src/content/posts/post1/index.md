@@ -1,11 +1,16 @@
 ---
 title: "My First Post"
-subTitle: "Demo post"
 published: 2024-01-01
+subTitle: "Demo post"
+source: https://github.com/EtnMn/etnmn.github.io
 tags: ["dev"]
+draft: false
 ---
 
 This is a demo post with code.
+
+![An image](./image.png)
+_An image_
 
 ```js
 import { defineConfig } from "astro/config";
@@ -38,4 +43,10 @@ export default defineConfig({
         },
     },
 });
+```
+
+Other
+
+```js
+import { defineConfig } from "astro/config";
 ```

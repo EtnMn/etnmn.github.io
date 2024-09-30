@@ -7,7 +7,11 @@ export default {
             padding: "2rem",
             center: true,
         },
-        extend: {},
+        extend: {
+            fontFamily: {
+                roboto: ["Roboto", "sans-serif"],
+            },
+        },
     },
     plugins: [require('@tailwindcss/typography')],
 }

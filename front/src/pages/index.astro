@@ -27,12 +27,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                         <Image
                             src={images[config.personnal.photo]()}
                             alt="photo"
-                            class="border-shapped p-5 mr-10 max-w-64 justify-self-center border-2 border-dashed hidden sm:block border-gray-500"
+                            class="bordered-shape p-5 mr-10 max-w-64 justify-self-center border-2 border-dashed hidden sm:block border-gray-500"
                         />
                     )}
                     {config.about.text && (
                         <div>
-                            <h3 class="font-light mb-4">
+                            <h3 class="text-2xl font-light mb-4">
                                 {config.about.title}
                             </h3>
                             <p>
@@ -48,7 +48,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     }
     <section class="mt-10">
         <h3
-            class="mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
+            class="text-2xl mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
         >
             {config.experience.title}
         </h3>
@@ -100,7 +100,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     </section>
     <section class="mt-10">
         <h3
-            class="mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
+            class="text-2xl mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
         >
             {config.education.title}
         </h3>
@@ -141,7 +141,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     </section>
     <section class="mt-10">
         <h3
-            class="mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
+            class="text-2xl mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
         >
             {config.certifications.title}
         </h3>

@@ -6,6 +6,7 @@ import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 import AsideTags from "@/components/aside-tags.astro";
 import AsidePosts from "@/components/aside-posts.astro";
 import config from "@/config.json";
+import GoBackButton from "@/components/go-back-button.astro";
 
 if (!config?.blog?.enabled) {
     return Astro.rewrite("/404");
@@ -34,7 +35,7 @@ const grouped = page.data.reduce(
 );
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const posts = await getCollection("posts");
+    const posts = await getCollection("posts", (p) => !p.data.draft);
     posts.sort(
         (a, b) => b.data.published.getTime() - a.data.published.getTime()
     );
@@ -42,79 +43,79 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 ---
 
-<BaseLayout title={title}>
-    <h3 class="font-light mb-5">
-        {title}
-    </h3>
-    <div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
-        <div>
-            {
-                grouped.map((g) => (
-                    <section>
-                        <h4 class="leading-loose text-lg font-bold">
-                            {g.year}
-                        </h4>
-                        <ul class="flex flex-col gap-y-6 my-6">
-                            {g.pages.map((p) => (
-                                <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
-                                    <div class="min-w-32 text-sm leading-6">
-                                        <time
-                                            datetime={p.data.published.toISOString()}
-                                        >
-                                            {formatDisplayedFullDate(
-                                                p.data.published
-                                            )}
-                                        </time>
-                                    </div>
-                                    <div>
-                                        <a
-                                            data-astro-prefetch=""
-                                            href={`/blog/${p.slug}`}
-                                            class="group"
-                                        >
-                                            <span class="underline-offset-4 decoration-dashed decoration-1 group-hover:underline">
-                                                {p.data.title}
-                                            </span>
+<BaseLayout
+    title={title}
+    class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8"
+>
+    <div>
+        <div class="flex flex-wrap justify-between">
+            <h3 class="text-2xl">{title}</h3>
+            <GoBackButton to="/" />
+        </div>
+        {
+            grouped.map((g) => (
+                <section>
+                    <h4 class="leading-loose text-lg font-bold">{g.year}</h4>
+                    <ul class="flex flex-col gap-y-6 my-3">
+                        {g.pages.map((p) => (
+                            <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
+                                <div class="min-w-32 text-sm leading-6">
+                                    <time
+                                        datetime={p.data.published.toISOString()}
+                                    >
+                                        {formatDisplayedFullDate(
+                                            p.data.published
+                                        )}
+                                    </time>
+                                </div>
+                                <div>
+                                    <a
+                                        data-astro-prefetch=""
+                                        href={`/blog/${p.slug}`}
+                                        class="group"
+                                    >
+                                        <span class="underline-offset-4 decoration-dashed decoration-1 group-hover:underline">
+                                            {p.data.title}
+                                        </span>
 
-                                            <p class="line-clamp-3 block text-sm italic font-light">
-                                                {p.data.subTitle}
-                                            </p>
-                                        </a>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-                ))
+                                        <p class="line-clamp-3 block text-sm italic font-light">
+                                            {p.data.subTitle}
+                                        </p>
+                                    </a>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            ))
+        }
+
+        <div class="flex gap-1 justify-center">
+            {
+                page.url.prev ? (
+                    <a
+                        href={page.url.prev}
+                        class="bordered-shape flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
+                    >
+                        Previous
+                    </a>
+                ) : null
             }
 
-            <div class="flex gap-1 justify-center">
-                {
-                    page.url.prev ? (
-                        <a
-                            href={page.url.prev}
-                            class="border-shapped flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
-                        >
-                            Previous
-                        </a>
-                    ) : null
-                }
-
-                {
-                    page.url.next ? (
-                        <a
-                            href={page.url.next}
-                            class="border-shapped flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
-                        >
-                            Next
-                        </a>
-                    ) : null
-                }
-            </div>
+            {
+                page.url.next ? (
+                    <a
+                        href={page.url.next}
+                        class="bordered-shape flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
+                    >
+                        Next
+                    </a>
+                ) : null
+            }
         </div>
-        <aside>
-            <AsidePosts />
-            <AsideTags />
-        </aside>
     </div>
+    <aside>
+        <AsidePosts />
+        <AsideTags />
+    </aside>
 </BaseLayout>

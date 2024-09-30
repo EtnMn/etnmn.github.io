@@ -1,28 +1,137 @@
 ---
+import "@/styles/code.css";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { getCollection } from "astro:content";
 import config from "@/config.json";
+import { formatDisplayedFullDate } from "@/utils/date";
+import AsideTags from "@/components/aside-tags.astro";
+import AsidePosts from "@/components/aside-posts.astro";
+import Chip from "@/components/chip.astro";
+import { Icon } from "astro-icon/components";
+import GoBackButton from "@/components/go-back-button.astro";
 
 if (!config?.blog?.enabled) {
     return Astro.rewrite("/404");
 }
 
-// 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
-    const blogEntries = await getCollection("posts");
+    const blogEntries = await getCollection("posts", (p) => !p.data.draft);
     return blogEntries.map((entry) => ({
         params: { slug: entry.slug },
         props: { entry },
     }));
 }
-// 2. For your template, you can get the entry directly from the prop
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { entry: post } = Astro.props;
+const { Content } = await post.render();
 ---
 
-<BaseLayout>
-    <h1>
-        {entry.data.title}
-    </h1>
-    <Content />
+<BaseLayout
+    title={post.data.title}
+    class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8"
+>
+    <article class="overflow-hidden">
+        <section class="mb-6">
+            <div class="flex flex-wrap justify-between">
+                <h3 class="text-2xl">{post.data.title}</h3>
+                <GoBackButton to="/blog" />
+            </div>
+            <div class="flex flex-wrap items-center gap-1 text-xs font-light">
+                <Icon name="calendar" class="text-lg" />
+                <time
+                    datetime={post.data.published.toISOString()}
+                >
+                    {formatDisplayedFullDate(post.data.published)}
+                </time>
+
+                { post.data.source && (
+                <Icon name="github" class="text-lg ml-2" />
+
+                        <a
+                            href={post.data.source}
+                            class="underline-offset-4 decoration-dashed decoration-1 hover:underline"
+                        >
+                            sources
+                        </a>
+                    )
+                }
+
+                <Icon name="tags" class="text-lg ml-2" />
+                {
+                    post.data.tags.map((t) => (
+                        <a href={`/tags/${t}`}>
+                            <Chip>{t}</Chip>
+                        </a>
+                    ))
+                }
+            </div>
+        </section>
+        <Content />
+    </article>
+    <aside>
+        <AsidePosts />
+        <AsideTags />
+    </aside>
 </BaseLayout>
+
+<script>
+    const copyButtonLabel =
+        '<svg xmlns=http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/></svg>';
+
+    for (const pre of Array.from(document.querySelectorAll("pre"))) {
+        let wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+
+        let copyButton = document.createElement("button");
+        copyButton.className = "copy-code";
+        copyButton.innerHTML = copyButtonLabel;
+
+        pre.setAttribute("tabindex", "0");
+        pre.appendChild(copyButton);
+
+        const notification = document.createElement("div");
+        notification.className = "copy-code-notification";
+        notification.innerText = "Copied";
+        notification.style.display = "none";
+        pre.appendChild(notification);
+
+        if (pre.parentNode) {
+            pre.parentNode.insertBefore(wrapper, pre);
+        }
+        wrapper.appendChild(pre);
+
+        copyButton.addEventListener("click", async () => {
+            await copyCode(pre, notification);
+        });
+    }
+
+    async function copyCode(
+        block: HTMLPreElement,
+        notification: HTMLDivElement
+    ) {
+        const code = block.querySelector("code");
+        if (code) {
+            await navigator.clipboard.writeText(code.innerText);
+            notification.style.display = "block";
+
+            setTimeout(() => {
+                notification.style.display = "none";
+            }, 1000);
+        }
+    }
+</script>
+
+<style is:global>
+    img {
+        margin: 12px auto;
+    }
+
+    img:has(+ em) {
+        margin-bottom: 3px;
+    }
+
+    img + em {
+        display: block;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+</style>
