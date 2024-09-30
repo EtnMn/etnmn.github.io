@@ -56,7 +56,7 @@ export const getStaticPaths = (async ({ paginate }) => {
             grouped.map((g) => (
                 <section>
                     <h4 class="leading-loose text-lg font-bold">{g.year}</h4>
-                    <ul class="flex flex-col gap-y-6 my-6">
+                    <ul class="flex flex-col gap-y-6 my-3">
                         {g.pages.map((p) => (
                             <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
                                 <div class="min-w-32 text-sm leading-6">
