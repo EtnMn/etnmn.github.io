@@ -9,6 +9,7 @@ import AsidePosts from "@/components/aside-posts.astro";
 import Chip from "@/components/chip.astro";
 import { Icon } from "astro-icon/components";
 import GoBackButton from "@/components/go-back-button.astro";
+import Prose from "@/components/prose.astro";
 
 if (!config?.blog?.enabled) {
     return Astro.rewrite("/404");
@@ -65,7 +66,9 @@ const { Content } = await post.render();
                 }
             </div>
         </section>
-        <Content />
+        <Prose>
+            <Content />
+        </Prose>
     </article>
     <aside>
         <AsidePosts />
@@ -121,15 +124,15 @@ const { Content } = await post.render();
 </script>
 
 <style is:global>
-    img {
+    .prose img {
         margin: 12px auto;
     }
 
-    img:has(+ em) {
+    .prose img:has(+ em) {
         margin-bottom: 3px;
     }
 
-    img + em {
+    .prose img + em {
         display: block;
         text-align: center;
         margin-bottom: 12px;
