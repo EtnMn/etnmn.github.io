@@ -1,0 +1,48 @@
+---
+import GoBackButton from "@/components/go-back-button.astro";
+import BlogLayout from "@/layouts/blog-layout.astro";
+import { getCollection } from "astro:content";
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts", (p) => !p.data.draft);
+    const tags = posts.map((post) => [...new Set(post.data.tags)]).flat();
+
+    console.log("tags", tags);
+
+    return tags.map((t) => {
+        return {
+            params: { tag: t },
+            props: {
+                posts: posts
+                    .filter((p) => p.data.tags.includes(t))
+                    .sort(
+                        (a, b) =>
+                            b.data.published.getTime() -
+                            a.data.published.getTime()
+                    ),
+            },
+        };
+    });
+}
+---
+
+<BlogLayout title={tag}>
+    <section>
+        <div class="flex flex-wrap justify-between mb-6">
+            <h3 class="text-2xl mb-1">{tag}</h3>
+            <GoBackButton to="/blog" />
+        </div>
+        <ul>
+            {
+                posts.map((post) => (
+                    <li>
+                        <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+</BlogLayout>

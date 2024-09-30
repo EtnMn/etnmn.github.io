@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@/layouts/base-layout.astro";
+import AsideTags from "@/components/aside-tags.astro";
+import AsidePosts from "@/components/aside-posts.astro";
+
+interface Props {
+    title: string;
+}
+const { title } = Astro.props;
+---
+
+<BaseLayout
+    title={title}
+    class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8"
+>
+    <slot />
+    <aside>
+        <AsidePosts />
+        <AsideTags />
+    </aside>
+</BaseLayout>

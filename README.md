@@ -2,7 +2,7 @@
 
 ## Overview
 
-A static resume template theme. Powered by [Astro](https://astro.build/) and GitHub pages.
+A static resume website, powered by [Astro](https://astro.build/) and GitHub pages.
 
 [View Demo](https://www.menou.fr/)
 

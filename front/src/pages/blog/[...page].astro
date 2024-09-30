@@ -1,12 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "@/layouts/base-layout.astro";
 import { formatDisplayedFullDate } from "@/utils/date";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
-import AsideTags from "@/components/aside-tags.astro";
-import AsidePosts from "@/components/aside-posts.astro";
 import config from "@/config.json";
 import GoBackButton from "@/components/go-back-button.astro";
+import BlogLayout from "@/layouts/blog-layout.astro";
 
 if (!config?.blog?.enabled) {
     return Astro.rewrite("/404");
@@ -43,11 +41,8 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 ---
 
-<BaseLayout
-    title={title}
-    class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8"
->
-    <div>
+<BlogLayout title={title}>
+    <section>
         <div class="flex flex-wrap justify-between">
             <h3 class="text-2xl">{title}</h3>
             <GoBackButton to="/" />
@@ -113,9 +108,5 @@ export const getStaticPaths = (async ({ paginate }) => {
                 ) : null
             }
         </div>
-    </div>
-    <aside>
-        <AsidePosts />
-        <AsideTags />
-    </aside>
-</BaseLayout>
+    </section>
+</BlogLayout>
