@@ -1,5 +1,6 @@
 ---
 import Chip from "@/components/chip.astro";
+import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("posts", p => !p.data.draft);
@@ -24,7 +25,10 @@ function orderTagByCount(tags: string[]) {
 ---
 
 {tags.length > 0 &&
-    <h4 class="leading-loose">Tags</h4>
+    <h4 class="leading-loose flex items-center gap-1">
+        <Icon name="tags" />
+        Tags
+    </h4>
     <div class="flex flex-wrap gap-2 mb-6 text-sm">
         {
             tags.slice(0, 10).map((t) => (

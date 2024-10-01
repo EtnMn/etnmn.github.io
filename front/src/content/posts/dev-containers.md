@@ -13,7 +13,7 @@ draft: false
 
 1. [Docker](https://docs.docker.com/desktop/install/windows-install/): used to create and manage the containerized development environment
 2. [VS Code](https://code.visualstudio.com/download) with [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
-3. [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install). Optional but offers benefits like improved file system performance, Linux compatibility, and seamless integration with Docker
+3. [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install). Optional but offers benefits like improved file system performance, Linux compatibility, and seamless integration with Docker. You can also check your [https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-git](git configuration).
 
 ## Configuration
 
@@ -59,6 +59,6 @@ Let's break down the different parts of this JSON object:
 
 ## Run the container
 
-Once you start _VS Code_ from _WSL_, you'll see is a message about `Installing VS Code Server`. It allows you to use Visual Studio Code on your _Windows_ machine while seamlessly interacting with the _WSL_ environment.
+Once you start _VS Code_ from _WSL_, you'll see a message about `Installing VS Code Server`. It allows you to use Visual Studio Code on your _Windows_ machine while seamlessly interacting with the _WSL_ environment.
 
 You can run the container by selecting _VS Code_ command `Dev Containers: Reopen in Container`. A shortcut is also available in the bottom left corner of the IDE. Once the build is complete, _VS Code_ will reopen the project inside the container and install extensions. You can now start coding.

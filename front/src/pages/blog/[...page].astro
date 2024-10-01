@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import { formatDisplayedFullDate } from "@/utils/date";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 import config from "@/config.json";
 import GoBackButton from "@/components/go-back-button.astro";
 import BlogLayout from "@/layouts/blog-layout.astro";
+import PostItem from "@/components/post-item.astro";
 
 if (!config?.blog?.enabled) {
     return Astro.rewrite("/404");
@@ -17,20 +17,6 @@ type ExtractGeneric<T> = T extends Array<infer U> ? U : never;
 type PageDataType = ExtractGeneric<Props["page"]["data"]>;
 
 const { page } = Astro.props as Props;
-
-const grouped = page.data.reduce(
-    (acc: { year: number; pages: PageDataType[] }[], p) => {
-        const year = p.data.published.getFullYear();
-        const yearIndex = acc.findIndex((a) => a.year === year);
-        if (yearIndex === -1) {
-            acc.push({ year, pages: [p] });
-        } else {
-            acc[yearIndex].pages.push(p);
-        }
-        return acc;
-    },
-    []
-);
 
 export const getStaticPaths = (async ({ paginate }) => {
     const posts = await getCollection("posts", (p) => !p.data.draft);
@@ -47,43 +33,17 @@ export const getStaticPaths = (async ({ paginate }) => {
             <h3 class="text-2xl">{title}</h3>
             <GoBackButton to="/" />
         </div>
-        {
-            grouped.map((g) => (
-                <section>
-                    <h4 class="leading-loose text-lg font-bold">{g.year}</h4>
-                    <ul class="flex flex-col gap-y-6 my-3">
-                        {g.pages.map((p) => (
-                            <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
-                                <div class="min-w-32 text-sm leading-6">
-                                    <time
-                                        datetime={p.data.published.toISOString()}
-                                    >
-                                        {formatDisplayedFullDate(
-                                            p.data.published
-                                        )}
-                                    </time>
-                                </div>
-                                <div>
-                                    <a
-                                        data-astro-prefetch=""
-                                        href={`/blog/${p.slug}`}
-                                        class="group"
-                                    >
-                                        <span class="underline-offset-4 decoration-dashed decoration-1 group-hover:underline">
-                                            {p.data.title}
-                                        </span>
-
-                                        <p class="line-clamp-3 block text-sm italic font-light">
-                                            {p.data.subTitle}
-                                        </p>
-                                    </a>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            ))
-        }
+        <section>
+            <ul class="flex flex-col gap-y-6 my-3">
+                {
+                    page.data.map((p) => (
+                        <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
+                            <PostItem post={p} />
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
 
         <div class="flex gap-1 justify-center">
             {

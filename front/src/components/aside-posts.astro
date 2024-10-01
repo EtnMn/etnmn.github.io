@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("posts", p => !p.data.draft);
@@ -6,7 +7,10 @@ posts.sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 ---
 
 {posts.length > 0 &&
-    <h4 class="leading-loose">Recent posts</h4>
+    <h4 class="leading-loose flex items-center gap-1">
+        <Icon name="feather" />
+        Posts
+    </h4>
     <ul class="mb-6 list-inside list-disc text-sm font-light marker:text-xs marker:text-gray-400">
         {
             posts.slice(0, 10).map((p) => (
