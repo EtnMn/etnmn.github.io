@@ -9,12 +9,11 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<BaseLayout
-    title={title}
-    class="grid gap-y-16 sm:grid-cols-[4fr_1fr] sm:gap-x-12"
->
-    <slot />
-    <aside>
+<BaseLayout title={title} class="flex flex-col md:flex-row gap-12">
+    <section class="w-full md:w-3/4">
+        <slot />
+    </section>
+    <aside class="w-full md:w-1/4">
         <AsidePosts />
         <AsideTags />
     </aside>

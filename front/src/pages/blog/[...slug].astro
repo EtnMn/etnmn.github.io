@@ -5,9 +5,9 @@ import config from "@/config.json";
 import { formatDisplayedFullDate } from "@/utils/date";
 import Chip from "@/components/chip.astro";
 import { Icon } from "astro-icon/components";
-import GoBackButton from "@/components/go-back-button.astro";
 import Prose from "@/components/prose.astro";
 import BlogLayout from "@/layouts/blog-layout.astro";
+import BlogTitle from "@/components/blog-title.astro";
 
 if (!config?.blog?.enabled) {
     return Astro.rewrite("/404");
@@ -25,13 +25,10 @@ const { Content } = await post.render();
 ---
 
 <BlogLayout title={post.data.title}>
-    <article class="overflow-hidden">
-        <section class="mb-6">
-            <div class="flex flex-wrap justify-between">
-                <h3 class="text-2xl mb-1">{post.data.title}</h3>
-                <GoBackButton to="/blog" />
-            </div>
-            <div class="flex flex-wrap items-center gap-2 text-xs font-light">
+    <article>
+        <BlogTitle backUrl="/blog">
+            {post.data.title}
+            <div slot="tag-line" class="flex flex-wrap items-center gap-2 text-xs font-light">
                 <Icon name="calendar" class="text-lg" />
                 <time
                     datetime={post.data.published.toISOString()}
@@ -61,7 +58,7 @@ const { Content } = await post.render();
                 }
                 </div>
             </div>
-        </section>
+        </BlogTitle>
         <Prose>
             <Content />
         </Prose>

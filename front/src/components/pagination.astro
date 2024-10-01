@@ -1,0 +1,31 @@
+---
+interface Props {
+    previous?: string;
+    next?: string;
+}
+const { previous, next } = Astro.props;
+---
+
+{
+    (previous || next) && (
+        <div class="flex gap-1 justify-center">
+            {previous ? (
+                <a
+                    href={previous}
+                    class="bordered-shape flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
+                >
+                    Previous
+                </a>
+            ) : null}
+
+            {next ? (
+                <a
+                    href={next}
+                    class="bordered-shape flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
+                >
+                    Next
+                </a>
+            ) : null}
+        </div>
+    )
+}
