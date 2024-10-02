@@ -1,19 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
-import config from "@/config.json";
 import BlogLayout from "@/layouts/blog-layout.astro";
 import PostItem from "@/components/post-item.astro";
 import Pagination from "@/components/pagination.astro";
 import BlogTitle from "@/components/blog-title.astro";
 
-if (!config?.blog?.enabled) {
-    return Astro.rewrite("/404");
-}
-
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const title = "Posts";
+const title = "Latest posts";
 const { page } = Astro.props as Props;
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -21,16 +16,16 @@ export const getStaticPaths = (async ({ paginate }) => {
     posts.sort(
         (a, b) => b.data.published.getTime() - a.data.published.getTime()
     );
-    return paginate(posts, { pageSize: 10 });
+    return paginate(posts, { pageSize: 5 });
 }) satisfies GetStaticPaths;
 ---
 
 <BlogLayout title={title}>
     <BlogTitle icon="feather" backUrl="/">{title}</BlogTitle>
-    <ul class="flex flex-col gap-y-6 my-3">
+    <ul class="flex flex-col gap-y-4 my-5">
         {
             page.data.map((p) => (
-                <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
+                <li class="flex flex-col gap-1 sm:flex-row sm:gap-x-4">
                     <PostItem post={p} />
                 </li>
             ))

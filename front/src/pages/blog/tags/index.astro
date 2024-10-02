@@ -1,7 +1,40 @@
 ---
+import BlogTitle from "@/components/blog-title.astro";
+import Chip from "@/components/chip.astro";
 import BlogLayout from "@/layouts/blog-layout.astro";
+import { getCollection } from "astro:content";
+const title = "Tags";
+
+const posts = await getCollection("posts", (p) => !p.data.draft);
+const tags = orderTagByCount(
+    posts.map((post) => [...new Set(post.data.tags)]).flat()
+);
+
+function orderTagByCount(tags: string[]) {
+    const t = tags.reduce((acc: { [key: string]: number }, tag: string) => {
+        acc[tag] = (acc[tag] ?? 0) + 1;
+        return acc;
+    }, {});
+
+    return Object.keys(t).sort((a, b) => {
+        if (t[a] !== t[b]) {
+            return t[b] - t[a];
+        } else {
+            return a.localeCompare(b);
+        }
+    });
+}
 ---
 
-<BlogLayout title="tags">
-    <section></section>
+<BlogLayout title={title}>
+    <BlogTitle icon="tags" backUrl="/blog">{title}</BlogTitle>
+    <div class="flex flex-wrap gap-2 mb-6 text-sm">
+        {
+            tags.map((t) => (
+                <a href={`/blog/tags/${t}`}>
+                    <Chip>{t}</Chip>
+                </a>
+            ))
+        }
+    </div>
 </BlogLayout>

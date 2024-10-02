@@ -45,7 +45,7 @@ To run the application locally, follow these steps:
     pnpm run dev
     ```
 
-    Or in the container
+    Or in the container, hit `F5` or
 
     ```sh
     pnpm run dev --host

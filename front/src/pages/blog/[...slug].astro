@@ -1,17 +1,12 @@
 ---
 import "@/styles/code.css";
 import { getCollection } from "astro:content";
-import config from "@/config.json";
 import { formatDisplayedFullDate } from "@/utils/date";
 import Chip from "@/components/chip.astro";
 import { Icon } from "astro-icon/components";
 import Prose from "@/components/prose.astro";
 import BlogLayout from "@/layouts/blog-layout.astro";
 import BlogTitle from "@/components/blog-title.astro";
-
-if (!config?.blog?.enabled) {
-    return Astro.rewrite("/404");
-}
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection("posts", (p) => !p.data.draft);
@@ -51,7 +46,7 @@ const { Content } = await post.render();
                 <div class="flex gap-2">
                 {
                     post.data.tags.map((t) => (
-                        <a href={`/tags/${t}`}>
+                        <a href={`/blog/tags/${t}`}>
                             <Chip>{t}</Chip>
                         </a>
                     ))

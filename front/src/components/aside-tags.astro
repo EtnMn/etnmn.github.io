@@ -20,18 +20,18 @@ function orderTagByCount(tags: string[]) {
         } else {
             return a.localeCompare(b);
         }
-    });
+    }).slice(0, 10);
 }
 ---
 
 {tags.length > 0 &&
     <h4 class="leading-loose flex items-center gap-1">
         <Icon name="tags" />
-        Tags
+        <a href="/blog/tags" class="underline-offset-4 decoration-dashed decoration-1 hover:underline ">Tags</a>
     </h4>
     <div class="flex flex-wrap gap-2 mb-6 text-sm">
         {
-            tags.slice(0, 10).map((t) => (
+            tags.map((t) => (
                 <a href={`/blog/tags/${t}`}>
                     <Chip>{t}</Chip>
                 </a>
