@@ -1,19 +1,12 @@
 ---
 import "@/styles/code.css";
-import BaseLayout from "@/layouts/base-layout.astro";
 import { getCollection } from "astro:content";
-import config from "@/config.json";
 import { formatDisplayedFullDate } from "@/utils/date";
-import AsideTags from "@/components/aside-tags.astro";
-import AsidePosts from "@/components/aside-posts.astro";
 import Chip from "@/components/chip.astro";
 import { Icon } from "astro-icon/components";
-import GoBackButton from "@/components/go-back-button.astro";
 import Prose from "@/components/prose.astro";
-
-if (!config?.blog?.enabled) {
-    return Astro.rewrite("/404");
-}
+import BlogLayout from "@/layouts/blog-layout.astro";
+import BlogTitle from "@/components/blog-title.astro";
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection("posts", (p) => !p.data.draft);
@@ -26,17 +19,11 @@ const { entry: post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BaseLayout
-    title={post.data.title}
-    class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8"
->
-    <article class="overflow-hidden">
-        <section class="mb-6">
-            <div class="flex flex-wrap justify-between">
-                <h3 class="text-2xl">{post.data.title}</h3>
-                <GoBackButton to="/blog" />
-            </div>
-            <div class="flex flex-wrap items-center gap-1 text-xs font-light">
+<BlogLayout title={post.data.title}>
+    <article>
+        <BlogTitle>
+            {post.data.title}
+            <div slot="tag-line" class="flex flex-wrap items-center gap-2 text-xs font-light">
                 <Icon name="calendar" class="text-lg" />
                 <time
                     datetime={post.data.published.toISOString()}
@@ -45,8 +32,7 @@ const { Content } = await post.render();
                 </time>
 
                 { post.data.source && (
-                <Icon name="github" class="text-lg ml-2" />
-
+                <Icon name="github" class="text-lg" />
                         <a
                             href={post.data.source}
                             class="underline-offset-4 decoration-dashed decoration-1 hover:underline"
@@ -56,25 +42,23 @@ const { Content } = await post.render();
                     )
                 }
 
-                <Icon name="tags" class="text-lg ml-2" />
+                <Icon name="tags" class="text-lg" />
+                <div class="flex gap-2">
                 {
                     post.data.tags.map((t) => (
-                        <a href={`/tags/${t}`}>
+                        <a href={`/blog/tags/${t}`}>
                             <Chip>{t}</Chip>
                         </a>
                     ))
                 }
+                </div>
             </div>
-        </section>
+        </BlogTitle>
         <Prose>
             <Content />
         </Prose>
     </article>
-    <aside>
-        <AsidePosts />
-        <AsideTags />
-    </aside>
-</BaseLayout>
+</BlogLayout>
 
 <script>
     const copyButtonLabel =

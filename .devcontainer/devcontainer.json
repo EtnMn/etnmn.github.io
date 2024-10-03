@@ -17,7 +17,8 @@
                 "esbenp.prettier-vscode",
                 "VisualStudioExptTeam.vscodeintellicode",
                 "bradlc.vscode-tailwindcss",
-                "DotJoshJohnson.xml"
+                "DotJoshJohnson.xml",
+                "DavidAnson.vscode-markdownlint"
             ]
         }
     },

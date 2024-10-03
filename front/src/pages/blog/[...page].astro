@@ -1,121 +1,40 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "@/layouts/base-layout.astro";
-import { formatDisplayedFullDate } from "@/utils/date";
 import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
-import AsideTags from "@/components/aside-tags.astro";
-import AsidePosts from "@/components/aside-posts.astro";
-import config from "@/config.json";
-import GoBackButton from "@/components/go-back-button.astro";
-
-if (!config?.blog?.enabled) {
-    return Astro.rewrite("/404");
-}
-
-const title = "Posts";
+import BlogLayout from "@/layouts/blog-layout.astro";
+import PostItem from "@/components/post-item.astro";
+import Pagination from "@/components/pagination.astro";
+import BlogTitle from "@/components/blog-title.astro";
+import NavigationLink from "@/components/navigation-link.astro";
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-type ExtractGeneric<T> = T extends Array<infer U> ? U : never;
-type PageDataType = ExtractGeneric<Props["page"]["data"]>;
 
+const title = "Latest posts";
 const { page } = Astro.props as Props;
-
-const grouped = page.data.reduce(
-    (acc: { year: number; pages: PageDataType[] }[], p) => {
-        const year = p.data.published.getFullYear();
-        const yearIndex = acc.findIndex((a) => a.year === year);
-        if (yearIndex === -1) {
-            acc.push({ year, pages: [p] });
-        } else {
-            acc[yearIndex].pages.push(p);
-        }
-        return acc;
-    },
-    []
-);
 
 export const getStaticPaths = (async ({ paginate }) => {
     const posts = await getCollection("posts", (p) => !p.data.draft);
     posts.sort(
         (a, b) => b.data.published.getTime() - a.data.published.getTime()
     );
-    return paginate(posts, { pageSize: 10 });
+    return paginate(posts, { pageSize: 5 });
 }) satisfies GetStaticPaths;
 ---
 
-<BaseLayout
-    title={title}
-    class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8"
->
-    <div>
-        <div class="flex flex-wrap justify-between">
-            <h3 class="text-2xl">{title}</h3>
-            <GoBackButton to="/" />
-        </div>
+<BlogLayout title={title}>
+    <BlogTitle icon="feather">
+        {title}
+        <NavigationLink slot="breadcrumb" to="/">resume</NavigationLink>
+    </BlogTitle>
+    <ul class="flex flex-col gap-y-4 my-5">
         {
-            grouped.map((g) => (
-                <section>
-                    <h4 class="leading-loose text-lg font-bold">{g.year}</h4>
-                    <ul class="flex flex-col gap-y-6 my-3">
-                        {g.pages.map((p) => (
-                            <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
-                                <div class="min-w-32 text-sm leading-6">
-                                    <time
-                                        datetime={p.data.published.toISOString()}
-                                    >
-                                        {formatDisplayedFullDate(
-                                            p.data.published
-                                        )}
-                                    </time>
-                                </div>
-                                <div>
-                                    <a
-                                        data-astro-prefetch=""
-                                        href={`/blog/${p.slug}`}
-                                        class="group"
-                                    >
-                                        <span class="underline-offset-4 decoration-dashed decoration-1 group-hover:underline">
-                                            {p.data.title}
-                                        </span>
-
-                                        <p class="line-clamp-3 block text-sm italic font-light">
-                                            {p.data.subTitle}
-                                        </p>
-                                    </a>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
+            page.data.map((p) => (
+                <li class="flex flex-col gap-1 sm:flex-row sm:gap-x-4">
+                    <PostItem post={p} />
+                </li>
             ))
         }
+    </ul>
 
-        <div class="flex gap-1 justify-center">
-            {
-                page.url.prev ? (
-                    <a
-                        href={page.url.prev}
-                        class="bordered-shape flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
-                    >
-                        Previous
-                    </a>
-                ) : null
-            }
-
-            {
-                page.url.next ? (
-                    <a
-                        href={page.url.next}
-                        class="bordered-shape flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400 hover:border border-gray-500 hover:border-gray-900 dark:hover:border-white dark:border-gray-400"
-                    >
-                        Next
-                    </a>
-                ) : null
-            }
-        </div>
-    </div>
-    <aside>
-        <AsidePosts />
-        <AsideTags />
-    </aside>
-</BaseLayout>
+    <Pagination previous={page.url.prev} next={page.url.next} />
+</BlogLayout>

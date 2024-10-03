@@ -2,23 +2,23 @@
 
 ## Overview
 
-A static resume template theme. Powered by [Astro](https://astro.build/) and GitHub pages.
+A static resume website, powered by [Astro](https://astro.build/) and GitHub pages.
 
 [View Demo](https://www.menou.fr/)
 
 ## Features
 
--   Astro v4
--   TailwindCSS utility classes
--   ESLint / Prettier pre-installed and pre-configured
--   Responsive & SEO-friendly
--   Dark / Light mode
--   [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
--   Optionnal blog section
+- Astro v4
+- TailwindCSS utility classes
+- ESLint / Prettier pre-installed and pre-configured
+- Responsive & SEO-friendly
+- Dark / Light mode
+- [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
+- Optionnal blog section
 
 ## Credits
 
--   [modern-resume-theme](https://github.com/sproogen/modern-resume-theme) for resume homepage design
+- [modern-resume-theme](https://github.com/sproogen/modern-resume-theme) for resume homepage design
 
 ## Installation and setup
 
@@ -45,7 +45,7 @@ To run the application locally, follow these steps:
     pnpm run dev
     ```
 
-    Or in the container
+    Or in the container, hit `F5` or
 
     ```sh
     pnpm run dev --host
@@ -76,6 +76,8 @@ Enable blog section in the `src/config.json` file. To add a post, insert `.md` f
 ### Layouts
 
 To edit the base layouts of all pages, edit the `src/layouts/base-layout.astro` file.
+
+To edit the blog layouts of blog pages, edit the `src/layouts/blog-layout.astro` file. Blog layout inherit from base layout.
 
 To edit the layout of the errors pages, edit the `src/layouts/error-layout.astro` file.
 

@@ -16,5 +16,6 @@ const { class: className, to } = Astro.props;
     ]}
     href={to}
 >
-    <Icon name="arrow-left" /> go back
+    <Icon name="arrow-left" />
+    <slot />
 </a>

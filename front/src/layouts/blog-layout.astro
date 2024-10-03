@@ -1,0 +1,20 @@
+---
+import BaseLayout from "@/layouts/base-layout.astro";
+import AsideTags from "@/components/aside-tags.astro";
+import AsidePosts from "@/components/aside-posts.astro";
+
+interface Props {
+    title: string;
+}
+const { title } = Astro.props;
+---
+
+<BaseLayout title={title} class="flex flex-col md:flex-row gap-12">
+    <section class="w-full md:w-3/4">
+        <slot />
+    </section>
+    <aside class="w-full md:w-1/4">
+        <AsidePosts />
+        <AsideTags />
+    </aside>
+</BaseLayout>

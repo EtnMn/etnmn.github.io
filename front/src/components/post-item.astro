@@ -1,0 +1,28 @@
+---
+import { formatDisplayedFullDate } from "@/utils/date";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    post: CollectionEntry<"posts">;
+}
+const { post } = Astro.props;
+---
+
+<div class="min-w-32 text-sm leading-6">
+    <time datetime={post.data.published.toISOString()}>
+        {formatDisplayedFullDate(post.data.published)}
+    </time>
+</div>
+<div>
+    <a data-astro-prefetch="" href={`/blog/${post.slug}`} class="group">
+        <span
+            class="underline-offset-4 decoration-dashed decoration-1 group-hover:underline"
+        >
+            {post.data.title}
+        </span>
+
+        <p class="line-clamp-3 block text-sm italic font-light">
+            {post.data.subTitle}
+        </p>
+    </a>
+</div>

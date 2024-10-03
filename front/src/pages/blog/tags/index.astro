@@ -1,9 +1,11 @@
 ---
+import BlogTitle from "@/components/blog-title.astro";
 import Chip from "@/components/chip.astro";
-import { Icon } from "astro-icon/components";
+import BlogLayout from "@/layouts/blog-layout.astro";
 import { getCollection } from "astro:content";
+const title = "Tags";
 
-const posts = await getCollection("posts", p => !p.data.draft);
+const posts = await getCollection("posts", (p) => !p.data.draft);
 const tags = orderTagByCount(
     posts.map((post) => [...new Set(post.data.tags)]).flat()
 );
@@ -20,15 +22,12 @@ function orderTagByCount(tags: string[]) {
         } else {
             return a.localeCompare(b);
         }
-    }).slice(0, 10);
+    });
 }
 ---
 
-{tags.length > 0 &&
-    <h4 class="leading-loose flex items-center gap-1">
-        <Icon name="tags" />
-        <a href="/blog/tags" class="underline-offset-4 decoration-dashed decoration-1 hover:underline ">Tags</a>
-    </h4>
+<BlogLayout title={title}>
+    <BlogTitle icon="tags">{title}</BlogTitle>
     <div class="flex flex-wrap gap-2 mb-6 text-sm">
         {
             tags.map((t) => (
@@ -38,4 +37,4 @@ function orderTagByCount(tags: string[]) {
             ))
         }
     </div>
-}
+</BlogLayout>

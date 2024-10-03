@@ -1,0 +1,41 @@
+---
+import BlogTitle from "@/components/blog-title.astro";
+import Pagination from "@/components/pagination.astro";
+import PostItem from "@/components/post-item.astro";
+import BlogLayout from "@/layouts/blog-layout.astro";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { getCollection } from "astro:content";
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { tag } = Astro.params;
+const { page } = Astro.props as Props;
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const posts = await getCollection("posts", (p) => !p.data.draft);
+    const tags = posts.map((post) => [...new Set(post.data.tags)]).flat();
+
+    return tags.flatMap((t) => {
+        const filteredPosts = posts.filter((p) => p.data.tags.includes(t));
+        return paginate(filteredPosts, {
+            params: { tag: t },
+            pageSize: 5,
+        });
+    });
+}) satisfies GetStaticPaths;
+---
+
+<BlogLayout title={tag}>
+    <BlogTitle icon="tags">{tag}</BlogTitle>
+    <ul class="marker:text-xs marker:text-gray-400 flex flex-col gap-y-4">
+        {
+            page.data.map((p) => (
+                <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4">
+                    <PostItem post={p} />
+                </li>
+            ))
+        }
+    </ul>
+
+    <Pagination previous={page.url.prev} next={page.url.next} />
+</BlogLayout>
