@@ -52,7 +52,7 @@ Let's break down the different parts of this JSON object:
 
 - _name_: Specifies the name of the development container. This name is displayed by _VS Code_
 - _build_: Specifies the Dockerfile to use for building the development container. For simplicity and faster setup, you can instead use the property _image_ to use a pre-built image
-- _remoteUser_: Specifies the user's name development container
+- _remoteUser_: Specifies the user's name in the development container
 - _features_: Installs tools and languages from a pre-defined set of [Features](https://github.com/devcontainers/features) or even your own.
 - _customizations/vscode_: Customizes to the Visual Studio Code editor inside the development container. In this case, it includes a list of extensions to install.
 - _mount_: Defines file system mappings to be used in the development container. In this case, it mounts the local SSH directory to the `.ssh` directory inside the container. This allows the container to access MSL [SSH keys](https://logfetch.com/git-ssh-keys/) in order to commit on <mark>Github</mark> by SSH.
