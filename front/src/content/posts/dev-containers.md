@@ -7,7 +7,7 @@ tags: ["VS Code", "Docker"]
 draft: false
 ---
 
-<mark>Dev Container</mark> offer a consistent and reproducible development environment, ensuring uniformity across all developers’ setups. By isolating the development environment from the host machine, they help prevent conflicts and enhance security. Additionally, they ensure that all necessary tools, libraries, and dependencies are available and properly configured
+<mark>Dev Containers</mark> offer a consistent and reproducible development environment, ensuring uniformity across all developers’ setups. By isolating the development environment from the host machine, they help prevent conflicts and enhance security. Additionally, they ensure that all necessary tools, libraries, and dependencies are available and properly configured
 
 ## Requirements
 
@@ -17,7 +17,7 @@ draft: false
 
 ## Configuration
 
-You need a `.devcontainer` folder in your project with a `devcontainer.json` file that defines the development environment. You can create one from scratch or use a predefined dev container configuration. To do this, access the <mark>Visual Studio Code</mark> Command Palette (_Ctrl+Shift+P_) then type _Add Dev Container Configuration Files_ and choose the definition you want to use. Note that for performance and compatibility issues, it is better to running a <mark>WSL</mark> project from the home folder.
+You need a `.devcontainer` folder in your project with a `devcontainer.json` file that defines the development environment. You can create one from scratch or use a predefined dev container configuration. To do this, access the <mark>Visual Studio Code</mark> Command Palette (_Ctrl+Shift+P_) then type _Add Dev Container Configuration Files_ and choose the definition you want to use. Note that for performance and compatibility issues, it is better to run a <mark>WSL</mark> project from the home folder.
 
 _Example of devcontainer.json_:
 
