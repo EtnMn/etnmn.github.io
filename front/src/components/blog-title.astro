@@ -1,13 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
-import GoBackButton from "./go-back-button.astro";
+import NavigationLink from "./navigation-link.astro";
 
 type Props = {
-    backUrl?: string;
     icon?: string;
 };
 
-const { backUrl, icon } = Astro.props;
+const { icon } = Astro.props;
 ---
 
 <section class="mb-6">
@@ -16,7 +15,9 @@ const { backUrl, icon } = Astro.props;
             {icon && <Icon class="mr-2" name={icon} />}
             <slot />
         </h3>
-        {backUrl && <GoBackButton to={backUrl} />}
+        <slot name="breadcrumb">
+            <NavigationLink to="/blog">posts</NavigationLink>
+        </slot>
     </div>
     <slot name="tag-line" />
 </section>

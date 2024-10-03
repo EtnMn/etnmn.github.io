@@ -5,6 +5,7 @@ import BlogLayout from "@/layouts/blog-layout.astro";
 import PostItem from "@/components/post-item.astro";
 import Pagination from "@/components/pagination.astro";
 import BlogTitle from "@/components/blog-title.astro";
+import NavigationLink from "@/components/navigation-link.astro";
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
@@ -21,7 +22,10 @@ export const getStaticPaths = (async ({ paginate }) => {
 ---
 
 <BlogLayout title={title}>
-    <BlogTitle icon="feather" backUrl="/">{title}</BlogTitle>
+    <BlogTitle icon="feather">
+        {title}
+        <NavigationLink slot="breadcrumb" to="/">resume</NavigationLink>
+    </BlogTitle>
     <ul class="flex flex-col gap-y-4 my-5">
         {
             page.data.map((p) => (

@@ -21,7 +21,7 @@ const { Content } = await post.render();
 
 <BlogLayout title={post.data.title}>
     <article>
-        <BlogTitle backUrl="/blog">
+        <BlogTitle>
             {post.data.title}
             <div slot="tag-line" class="flex flex-wrap items-center gap-2 text-xs font-light">
                 <Icon name="calendar" class="text-lg" />

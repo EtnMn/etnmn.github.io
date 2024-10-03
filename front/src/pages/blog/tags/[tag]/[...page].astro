@@ -26,7 +26,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 ---
 
 <BlogLayout title={tag}>
-    <BlogTitle icon="tags" backUrl="/blog">{tag}</BlogTitle>
+    <BlogTitle icon="tags">{tag}</BlogTitle>
     <ul class="marker:text-xs marker:text-gray-400 flex flex-col gap-y-4">
         {
             page.data.map((p) => (
