@@ -13,8 +13,10 @@ const { title } = Astro.props;
     <section class="w-full md:w-3/4">
         <slot />
     </section>
-    <aside class="w-full md:w-1/4">
-        <AsidePosts />
-        <AsideTags />
+    <aside class="w-full md:w-1/4 flex md:justify-end">
+        <section>
+            <AsidePosts />
+            <AsideTags />
+        </section>
     </aside>
 </BaseLayout>

@@ -15,7 +15,6 @@ posts = posts.sort((a, b) => b.data.published.getTime() - a.data.published.getTi
         {
             posts.slice(0, 10).map((p) => (
                 <li class=" first:pt-0 last:pb-0 flex items-center">
-                    <Icon name="dot" class="shrink-0"/>
                     <a
                         class="underline-offset-4 decoration-dashed decoration-1 hover:underline inline-block overflow-hidden whitespace-nowrap text-ellipsis"
                         href={`/blog/${p.slug}`}
