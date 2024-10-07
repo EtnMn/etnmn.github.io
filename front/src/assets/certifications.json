@@ -8,11 +8,11 @@
             "url": "https://learn.microsoft.com/fr-fr/credentials/certifications/azure-fundamentals"
         },
         {
-            "code": "AZ-104",
+            "code": "AZ-204",
             "level": 2,
             "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
-            "name": "Azure Administrator Associate",
-            "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/"
+            "name": "Azure Developer Associate",
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-developer"
         },
         {
             "code": "AZ-400",
