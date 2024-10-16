@@ -19,7 +19,7 @@ draft: false
 
 You need a `.devcontainer` folder in your project with a `devcontainer.json` file that defines the development environment. You can create one from scratch or use a [predefined dev container configuration](https://github.com/devcontainers/images). To do this, access the <mark>Visual Studio Code</mark> Command Palette (_Ctrl+Shift+P_) then type _Add Dev Container Configuration Files_ and choose the definition you want to use. Note that for performance and compatibility issues, it is better to run a <mark>WSL</mark> project from the home folder.
 
-_Example of devcontainer.json_:
+_devcontainer.json_:
 
 ```json
 {
