@@ -28,7 +28,7 @@ Or updated with:
 dotnet tool update --global dotnet-ef
 ```
 
-Before you can use the tools on a specific project, you'll need to add the Microsoft.EntityFrameworkCore.Design package to it:
+Before you can use the tools on a specific project, you'll need to add the <mark>Microsoft.EntityFrameworkCore.Design</mark> package to it:
 
 ```shell
 dotnet add package Microsoft.EntityFrameworkCore.Design
