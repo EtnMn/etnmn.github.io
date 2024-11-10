@@ -1,7 +1,7 @@
 ---
 title: "VS Code and Dev Containers"
 published: 2024-10-01
-subTitle: "How to say 'It works on our machines'"
+subTitle: "How to say 'It works on our machines'!"
 source: https://github.com/EtnMn/etnmn.github.io
 tags: ["VS Code", "Docker"]
 draft: false
