@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/base-layout.astro";
 import Prose from "@/components/prose.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 import { formatDisplayedDate } from "@/utils/date";
 import config from "@/config.json";
@@ -56,7 +56,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             allExperiences && (
                 <div class="flex flex-col gap-y-10">
                     {allExperiences.map(async (e) => {
-                        const { Content } = await e.render();
+                        const { Content } = await render(e);
                         return (
                             <div class="flex gap-x-10 gap-y-3 flex-col sm:flex-row">
                                 <div class="basis-1/4">
@@ -102,13 +102,21 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         <h3
             class="text-2xl mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
         >
+            {config.certifications.title}
+        </h3>
+        <Certifications codes={config.certifications.codes} />
+    </section>
+    <section class="mt-10">
+        <h3
+            class="text-2xl mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
+        >
             {config.education.title}
         </h3>
         {
             allEducations && (
                 <div class="flex flex-col sm:grid grid-cols-2 gap-2 gap-y-6">
                     {allEducations.map(async (e) => {
-                        const { Content } = await e.render();
+                        const { Content } = await render(e);
                         return (
                             <div class="flex flex-col items-center gap-1 text-center">
                                 <p class="font-light">{e.data.location}</p>
@@ -138,13 +146,5 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 </div>
             )
         }
-    </section>
-    <section class="mt-10">
-        <h3
-            class="text-2xl mb-5 pb-1 text-center font-light border-b-2 border-dashed border-gray-500"
-        >
-            {config.certifications.title}
-        </h3>
-        <Certifications codes={config.certifications.codes} />
     </section>
 </BaseLayout>

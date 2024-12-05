@@ -1,7 +1,8 @@
 import { z, defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 
 const educationCollection = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "**/*.md", base: "./src/content/education" }),
     schema: z
         .object({
             end: z.coerce.date().optional(),
@@ -17,7 +18,7 @@ const educationCollection = defineCollection({
 });
 
 const experienceCollection = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "**/*.md", base: "./src/content/experience" }),
     schema: z
         .object({
             end: z.coerce.date().optional(),
@@ -33,7 +34,7 @@ const experienceCollection = defineCollection({
 });
 
 const postsCollection = defineCollection({
-    type: "content",
+    loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
     schema: z
         .object({
             edited: z.coerce.date().optional(),

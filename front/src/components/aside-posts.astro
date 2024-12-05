@@ -17,7 +17,7 @@ posts = posts.sort((a, b) => b.data.published.getTime() - a.data.published.getTi
                 <li class=" first:pt-0 last:pb-0 flex items-center">
                     <a
                         class="underline-offset-4 decoration-dashed decoration-1 hover:underline inline-block overflow-hidden whitespace-nowrap text-ellipsis"
-                        href={`/blog/${p.slug}`}
+                        href={`/blog/${p.id}`}
                     >
                        {p.data.title}
                     </a>
