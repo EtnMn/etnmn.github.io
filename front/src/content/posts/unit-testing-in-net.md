@@ -36,7 +36,7 @@ Invariant testing ensures that certain conditions or properties remain true thro
 * Verifies that the area is non-negative for a given width and height
 * Verifies that the area is zero when either the width or height is zero
 
-## Create a test with xUnit
+## Create tests with xUnit
 
 A test class is a fundamental component of unit testing that contains test methods to verify the functionality of the code. It uses assertions to check for expected outcomes and ensures that tests run in isolation. Test classes are an essential part of automated testing frameworks like <mark>xUnit</mark>. [xUnit](https://xunit.net/) is a popular open-source unit testing framework for .NET languages, here are some of its features:
 
@@ -95,7 +95,7 @@ public class RectangleTests
 }
 ```
 
-The [InlineData] attribute is ideal for scenarios where your method parameters are constants and you have a limited number of test cases. For more complex scenarios or when you have numerous test cases, consider using [ClassData] or [MemberData] to provide data to your [Theory] tests.
+The `[InlineData]` attribute is ideal for scenarios where your method parameters are constants and you have a limited number of test cases. For more complex scenarios or when you have numerous test cases, consider using `[ClassData]` or `[MemberData]` to provide data to your `[Theory]` tests.
 
 ```csharp
 public class RectangleTests
@@ -155,7 +155,7 @@ public class CalculatorTests
 }
 ```
 
-To run test in <mark>Visual Studio</mark> you need to install the package [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio). It allows you to run xUnit tests directly within the Visual Studio IDE, providing a seamless and integrated testing experience with __Text Explorer__ and __Live Unit Testing__. For <mark>VS Code</mark> the extensions [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer) or [.NET Core Test Explorer](https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer) are availables, or you can simply execure `dotnet test`.
+To run test in <mark>Visual Studio</mark> you need to install the package [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio). It allows you to run xUnit tests directly within the Visual Studio IDE, providing a seamless and integrated testing experience with __Text Explorer__ and __Live Unit Testing__. For <mark>VS Code</mark> the extensions [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer) or [.NET Core Test Explorer](https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer) are availables, or you can simply execute `dotnet test`.
 
 ## Fluent assertion
 
