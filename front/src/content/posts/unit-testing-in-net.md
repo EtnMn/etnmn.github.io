@@ -2,8 +2,8 @@
 title: "Unit testing in .NET"
 published: 2024-12-06
 subTitle: "Testing frameworks and basic assertions"
-tags: [".NET", "Visual Studio", ""VS Code]
-draft: true
+tags: [".NET", "Visual Studio", "VS Code"]
+draft: false
 ---
 
 I will not go over the importance of testing, explain the different types of tests, or what TDD is, but rather focus on the tools available for unit testing in .NET.
