@@ -38,7 +38,7 @@ Invariant testing ensures that certain conditions or properties remain true thro
 
 ## Create tests with xUnit
 
-A test class is a fundamental component of unit testing that contains test methods to verify the functionality of the code. It uses assertions to check for expected outcomes and ensures that tests run in isolation. Test classes are an essential part of automated testing frameworks like <mark>xUnit</mark>. [xUnit](https://xunit.net/) is a popular open-source unit testing framework for .NET languages, here are some of its features:
+A test class is a fundamental component of unit testing that contains test methods to verify the functionality of the code. It uses <mark>assertions</mark> to check for expected outcomes and ensures that tests run in isolation. Test classes are an essential part of automated testing frameworks like <mark>xUnit</mark>. [xUnit](https://xunit.net/) is a popular open-source unit testing framework for .NET languages, here are some of its features:
 
 * `[Fact]`: Marks a method as a test method that does not take any parameters
 * `[Theory]`: Marks a method as a parameterized test method that can take multiple sets of data
@@ -157,6 +157,8 @@ public class CalculatorTests
 
 To run test in <mark>Visual Studio</mark> you need to install the package [xunit.runner.visualstudio](https://www.nuget.org/packages/xunit.runner.visualstudio). It allows you to run xUnit tests directly within the Visual Studio IDE, providing a seamless and integrated testing experience with __Text Explorer__ and __Live Unit Testing__. For <mark>VS Code</mark> the extensions [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer) or [.NET Core Test Explorer](https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer) are availables, or you can simply execute `dotnet test`.
 
+Note that _FluentValidation_ provides some [extensions](https://docs.fluentvalidation.net/en/latest/testing.html) that can aid with testing your validator classes. You can use the TestValidate extension method to invoke a validator for testing purposes, and then perform assertions against the result.
+
 ## Fluent assertion
 
 [Fluent Assertions](https://fluentassertions.com/introduction) is a library that provides a more readable and expressive way to write assertions in unit tests compared to classic assertions. It enhances the readability and maintainability of test code by allowing assertions to be written in a fluent, chainable style.
@@ -231,7 +233,7 @@ public class CalculatorTests
 }
 ```
 
-_AutoFixture_'s Build method allows you to customize the creation of objects in a more controlled manner. This is useful when you need to set specific properties or apply custom rules to the generated objects.
+_AutoFixture_'s Build method allows you to <mark>customize the creation of objects</mark> in a more controlled manner. This is useful when you need to set specific properties or apply custom rules to the generated objects.
 
 ```csharp
 using AutoFixture;
@@ -310,4 +312,11 @@ public class UserTests
 ```csharp
 IUserService userService = Substitute.For<IUserService>();
 userService.GetById(Arg.Any<int>()).Returns(c => new User() {Id = c.Arg<int>()});
+```
+
+You can verify that a method was called on a mock:
+
+```csharp
+IUserService userService = Substitute.For<IUserService>();
+userService.Received().GetById(Arg.Any<int>());
 ```
