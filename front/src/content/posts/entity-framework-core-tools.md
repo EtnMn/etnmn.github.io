@@ -83,7 +83,7 @@ The migration state is saved in a special tabgitle within the database called `_
 When changes require updating an __existing migration__, you have to remove it and then create a new correct one:
 
 ```shell
-dotnet ef migrations remove
+dotnet ef migrations remove -s ".\src\API" -p ".\src\Infrastructure"
 ```
 
 You can remove multiple migrations in Entity Framework Core, but you need to do it one at a time.
@@ -97,7 +97,7 @@ dotnet ef migrations list
 Then revert to the migration to update and remove it:
 
 ```shell
-dotnet ef database update MigrationToUpadate
+dotnet ef database update MigrationToUpdate
 dotnet ef migrations remove
 ```
 
