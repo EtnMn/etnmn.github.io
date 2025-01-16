@@ -3,6 +3,7 @@ import SocialLink from "@/components/social-link.astro";
 
 interface Props {
     networks: {
+        bluesky?: string;
         github?: string;
         linkedin?: string;
         x?: string;
@@ -15,22 +16,49 @@ const { networks } = Astro.props;
 <div class="inline-block text-right">
     <ul class="mb-1 block">
         <slot />
-        <li class="inline-block pl-2">
-            <SocialLink
-                url="https://www.github.com"
-                profil={networks.github}
-                icon="github"
-            />
-        </li>
-        <li class="inline-block pl-2">
-            <SocialLink url="https://x.com" profil={networks.x} icon="x" />
-        </li>
-        <li class="inline-block pl-2">
-            <SocialLink
-                url="https://www.linkedin.com/in"
-                profil={networks.linkedin}
-                icon="linkedin"
-            />
-        </li>
+        {
+            networks.github && (
+                <li class="inline-block pl-2">
+                    <SocialLink
+                        url="https://www.github.com"
+                        profil={networks.github}
+                        icon="github"
+                    />
+                </li>
+            )
+        }
+        {
+            networks.bluesky && (
+                <li class="inline-block pl-2">
+                    <SocialLink
+                        url="https://bsky.app/profile"
+                        profil={networks.bluesky}
+                        icon="bluesky"
+                    />
+                </li>
+            )
+        }
+        {
+            networks.x && (
+                <li class="inline-block pl-2">
+                    <SocialLink
+                        url="https://x.com"
+                        profil={networks.x}
+                        icon="x"
+                    />
+                </li>
+            )
+        }
+        {
+            networks.linkedin && (
+                <li class="inline-block pl-2">
+                    <SocialLink
+                        url="https://www.linkedin.com/in"
+                        profil={networks.linkedin}
+                        icon="linkedin"
+                    />
+                </li>
+            )
+        }
     </ul>
 </div>

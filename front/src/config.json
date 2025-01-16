@@ -30,9 +30,9 @@
         "website": "https://www.menou.fr"
     },
     "socials": {
+        "bluesky": "etnmn.bsky.social",
         "github": "etnmn",
-        "linkedin": "etienne-menou",
-        "x": "etnmn"
+        "linkedin": "etienne-menou"
     },
     "footer": {
         "text": "2024",
