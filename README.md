@@ -8,7 +8,7 @@ A static resume website, powered by [Astro](https://astro.build/) and GitHub pag
 
 ## Features
 
-- Astro v4
+- Astro v5
 - TailwindCSS utility classes
 - ESLint / Prettier pre-installed and pre-configured
 - Responsive & SEO-friendly
