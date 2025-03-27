@@ -11,7 +11,7 @@ draft: false
 
 ## Requirements
 
-1. [Docker](https://docs.docker.com/desktop/install/windows-install/): used to create and manage the containerized development environment
+1. [Docker](https://docs.docker.com/desktop/install/windows-install/) or [Rancher Desktop](https://docs.rancherdesktop.io/): used to create and manage the containerized development environment
 2. [VS Code](https://code.visualstudio.com/download) with [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
 3. [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install). Optional but offers benefits like improved file system performance, Linux compatibility, and seamless integration with Docker. You can also check your [git configuration](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-git).
 
