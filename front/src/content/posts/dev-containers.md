@@ -11,9 +11,15 @@ draft: false
 
 ## Requirements
 
-1. [Docker](https://docs.docker.com/desktop/install/windows-install/): used to create and manage the containerized development environment
+1. [Docker](https://docs.docker.com/desktop/install/windows-install/) or [Rancher Desktop](https://docs.rancherdesktop.io/): used to create and manage the containerized development environment
 2. [VS Code](https://code.visualstudio.com/download) with [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
 3. [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install). Optional but offers benefits like improved file system performance, Linux compatibility, and seamless integration with Docker. You can also check your [git configuration](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-git).
+
+You can now setup git on _WSL_:
+
+* Username: `git config --global user.name <USERNAME>`
+* Email: `git config --global user.email <EMAIL>`
+* Editor (VS Code): `git config --global core.editor "code --wait"`
 
 ## Configuration
 
@@ -50,12 +56,12 @@ _devcontainer.json_:
 
 Let's break down the different parts of this JSON object:
 
-- _name_: Specifies the name of the development container. This name is displayed by _VS Code_
-- _build_: Specifies the Dockerfile to use for building the development container. For simplicity and faster setup, you can instead use the property _image_ to use a pre-built image
-- _remoteUser_: Specifies the user's name in the development container
-- _features_: Installs tools and languages from a pre-defined set of [Features](https://github.com/devcontainers/features) or even your own.
-- _customizations/vscode_: Customizes to the Visual Studio Code editor inside the development container. In this case, it includes a list of extensions to install.
-- _mount_: Defines file system mappings to be used in the development container. In this case, it mounts the local SSH directory to the `.ssh` directory inside the container. This allows the container to access MSL [SSH keys](https://logfetch.com/git-ssh-keys/) in order to commit on <mark>Github</mark> by SSH.
+* _name_: Specifies the name of the development container. This name is displayed by _VS Code_
+* _build_: Specifies the Dockerfile to use for building the development container. For simplicity and faster setup, you can instead use the property _image_ to use a pre-built image
+* _remoteUser_: Specifies the user's name in the development container
+* _features_: Installs tools and languages from a pre-defined set of [Features](https://github.com/devcontainers/features) or even your own.
+* _customizations/vscode_: Customizes to the Visual Studio Code editor inside the development container. In this case, it includes a list of extensions to install.
+* _mount_: Defines file system mappings to be used in the development container. In this case, it mounts the local SSH directory to the `.ssh` directory inside the container. This allows the container to access MSL [SSH keys](https://logfetch.com/git-ssh-keys/) in order to commit on <mark>Github</mark> by SSH.
 
 ## Run the container
 
