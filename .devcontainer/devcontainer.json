@@ -6,8 +6,10 @@
     },
     "remoteUser": "node",
     "features": {
-        "ghcr.io/devcontainers-extra/features/pnpm:2": {}
+        "ghcr.io/devcontainers-extra/features/pnpm:2": {},
+        "ghcr.io/devcontainers-extra/features/starship:1": {}
     },
+    "postCreateCommand": "grep -q 'starship init bash' ~/.bashrc || echo 'eval \"$(starship init bash)\"' >> ~/.bashrc",
     "customizations": {
         "vscode": {
             "extensions": [
