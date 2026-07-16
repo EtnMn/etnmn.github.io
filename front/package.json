@@ -11,12 +11,13 @@
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.18",
-        "astro": "^5.16.7",
+        "astro": "^7.1.0",
         "tailwindcss": "^4.1.18",
-        "typescript": "^5.9.3"
+        "typescript": "^5.9.3",
+        "zod": "^4.4.3"
     },
     "devDependencies": {
-        "@astrojs/check": "^0.9.6",
+        "@astrojs/check": "^0.9.9",
         "@tailwindcss/typography": "^0.5.19",
         "@typescript-eslint/parser": "^8.52.0",
         "astro-icon": "^1.1.5",

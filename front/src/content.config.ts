@@ -1,5 +1,6 @@
-import { z, defineCollection } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "zod";
 
 const educationCollection = defineCollection({
     loader: glob({ pattern: "**/*.md", base: "./src/content/education" }),
@@ -40,7 +41,7 @@ const postsCollection = defineCollection({
             edited: z.coerce.date().optional(),
             draft: z.coerce.boolean().default(false),
             published: z.coerce.date(),
-            source: z.string().url().optional(),
+            source: z.url().optional(),
             subTitle: z.string().max(300).optional(),
             tags: z.array(z.string().max(50)).default([]),
             title: z.string().min(5).max(100),
