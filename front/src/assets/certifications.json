@@ -50,6 +50,13 @@
             "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/"
         },
         {
+            "code": "GH-200",
+            "level": 0,
+            "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/github-actions.svg",
+            "name": "GitHub Actions",
+            "url": "https://learn.microsoft.com/en-us/credentials/certifications/github-actions/?practice-assessment-type=certification"
+        },
+        {
             "code": "SC-900",
             "level": 1,
             "logo": "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg",
