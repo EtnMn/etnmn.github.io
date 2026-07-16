@@ -3,11 +3,12 @@ import BlogTitle from "@/components/blog-title.astro";
 import Chip from "@/components/chip.astro";
 import BlogLayout from "@/layouts/blog-layout.astro";
 import { getCollection } from "astro:content";
+import { slugify } from "@/utils/slug";
 const title = "Tags";
 
 const posts = await getCollection("posts", (p) => !p.data.draft);
 const tags = orderTagByCount(
-    posts.map((post) => [...new Set(post.data.tags)]).flat()
+    posts.map((post) => [...new Set(post.data.tags)]).flat(),
 );
 
 function orderTagByCount(tags: string[]) {
@@ -31,7 +32,7 @@ function orderTagByCount(tags: string[]) {
     <div class="flex flex-wrap gap-2 mb-6 text-sm">
         {
             tags.map((t) => (
-                <a href={`/blog/tags/${t}`}>
+                <a href={`/blog/tags/${slugify(t)}`}>
                     <Chip>{t}</Chip>
                 </a>
             ))

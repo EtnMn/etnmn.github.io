@@ -5,28 +5,29 @@ import PostItem from "@/components/post-item.astro";
 import BlogLayout from "@/layouts/blog-layout.astro";
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { getCollection } from "astro:content";
+import { slugify } from "@/utils/slug";
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { tag } = Astro.params;
-const { page } = Astro.props as Props;
+const { page, originalTag } = Astro.props as Props;
 
 export const getStaticPaths = (async ({ paginate }) => {
     const posts = await getCollection("posts", (p) => !p.data.draft);
-    const tags = posts.map((post) => [...new Set(post.data.tags)]).flat();
+    const uniqueTags = [...new Set(posts.flatMap((post) => post.data.tags))];
 
-    return tags.flatMap((t) => {
+    return uniqueTags.flatMap((t) => {
         const filteredPosts = posts.filter((p) => p.data.tags.includes(t));
         return paginate(filteredPosts, {
-            params: { tag: t },
+            params: { tag: slugify(t) },
+            props: { originalTag: t },
             pageSize: 5,
         });
     });
 }) satisfies GetStaticPaths;
 ---
 
-<BlogLayout title={tag}>
-    <BlogTitle icon="tags">{tag}</BlogTitle>
+<BlogLayout title={originalTag}>
+    <BlogTitle icon="tags">{originalTag}</BlogTitle>
     <ul class="marker:text-xs marker:text-gray-400 flex flex-col gap-y-4">
         {
             page.data.map((p) => (
