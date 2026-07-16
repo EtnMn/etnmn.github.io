@@ -10,19 +10,19 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@tailwindcss/vite": "^4.1.18",
+        "@tailwindcss/vite": "^4.3.2",
         "astro": "^7.1.0",
-        "tailwindcss": "^4.1.18",
+        "tailwindcss": "^4.3.2",
         "typescript": "^5.9.3",
         "zod": "^4.4.3"
     },
     "devDependencies": {
         "@astrojs/check": "^0.9.9",
-        "@tailwindcss/typography": "^0.5.19",
-        "@typescript-eslint/parser": "^8.52.0",
+        "@tailwindcss/typography": "^0.5.20",
+        "@typescript-eslint/parser": "^8.64.0",
         "astro-icon": "^1.1.5",
-        "eslint": "^9.39.2",
-        "eslint-plugin-astro": "^1.5.0",
+        "eslint": "^9.39.5",
+        "eslint-plugin-astro": "^1.7.0",
         "sharp": "^0.34.5"
     }
 }
